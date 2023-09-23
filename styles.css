@@ -2,11 +2,12 @@ html {
     height: 100%;
     overflow: hidden;
     background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
-    color: #737fbe;
+    color: #8d99ca;
+    font-family: 'JetBrains Mono', monospace;
 }
 
-h1 {
-    font-size: 30px;
+h2 {
+    font-size: 26px;
 }
 
 p {
@@ -22,8 +23,26 @@ a:hover {
     text-decoration: underline;
 }
 
-#email {
+section {
+    border-left: 1px solid #8d99ca;
+    padding: 10px;
+    margin: 10px;
 }
+
+.container {
+    display: flex;
+    flex-direction: row;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.about {
+    flex-basis: 60%;
+}
+.projects {
+    flex-basis: 40%;
+}
+
 #stars {
     width: 1px;
     height: 1px;
@@ -511,7 +530,6 @@ a:hover {
     156px 81px #fff, 1915px 502px #fff, 1076px 1846px #fff, 152px 1669px #fff,
     986px 1529px #fff, 1667px 1137px #fff;
 }
-
 #stars3 {
     width: 3px;
     height: 3px;
@@ -545,7 +563,7 @@ a:hover {
     498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
 }
 
-#stars3:after {
+stars3:after {
     content: '';
     position: absolute;
     top: 2000px;
@@ -580,7 +598,6 @@ a:hover {
     498px 1947px #fff, 617px 880px #fff, 240px 403px #fff;
 }
 
-
 @keyframes animStar {
     from {
         transform: translateY(0px);
@@ -589,8 +606,3 @@ a:hover {
         transform: translateY(-2000px);
     }
 }
-
-
-
-
-
