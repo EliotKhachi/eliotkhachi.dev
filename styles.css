@@ -1,16 +1,33 @@
 html {
-    height: 100%;
-    overflow: hidden;
-    background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
-    color: #8d99ca;
-    font-family: 'JetBrains Mono', monospace;
+
 }
 
+ body {
+    height: 100%;
+    overflow: auto;
+    background: radial-gradient(ellipse at bottom, #1b2735 0%,#090a0f 100%);
+    color: #a3acce;
+    font-family: 'JetBrains Mono', monospace;
+ }
+
+ .parent {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+ }
+
+ #title {
+    flex-grow: 1;
+ }
+
 h2 {
-    font-size: 26px;
+    margin: 20px;
+    font-size: 30px;
+    line-height: 45px;
 }
 
 p {
+    margin: 40px;
     font-size: 20px;
 }
 
@@ -19,31 +36,81 @@ a {
     text-decoration: none;
 }
 
-a:hover {
+.about.a:hover {
     text-decoration: underline;
 }
 
 section {
-    border-left: 1px solid #8d99ca;
+    border: 1px solid #8d99ca;
     padding: 10px;
     margin: 10px;
+    z-index: 1;
 }
 
 .container {
     display: flex;
     flex-direction: row;
-    max-width: 1000px;
+    max-width: 1400px;
     margin: 0 auto;
+}
+
+#about-header {
+    font-size: 20px;
+    text-decoration: underline;
+    transform: rotate(-90deg);
+    position: absolute;
+    left: 100px;
 }
 
 .about {
     flex-basis: 60%;
 }
+
+#project-header {
+    /* transform: rotate(90deg); */
+}
 .projects {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto;
+    align-items: center;
+    justify-items: center;
+    font-size: 16px;
     flex-basis: 40%;
 }
 
+#aqualinkd {
+    grid-column: 1 / 1;
+    grid-row: 1 / 1;
+    margin: 20px;
+    opacity: 20%;
+}
+#aqualinkd{
+    opacity: 100%
+}
+#gravity-game{
+    grid-column: 2 / 2;
+    grid-row: 1 / 1;
+    margin: 20px;
+}
+#lid-driven-square-cavity{
+    grid-column: 2 / 2;
+    grid-row: 2 / 2;
+    margin: 20px;
+}
+#zettelkasten{
+    grid-column: 1 / 1;
+    grid-row: 2 / 2;
+    margin: 20px;
+}
+
+.wrapper {
+    z-index: 0;
+}
+
 #stars {
+    z-index: 0;
+    overflow: hidden;
     width: 1px;
     height: 1px;
     background: transparent;
@@ -228,6 +295,8 @@ section {
 }
 
 #stars:after {
+    z-index: 0;
+    overflow: hidden;
     content: '';
     position: absolute;
     top: 2000px;
@@ -414,6 +483,8 @@ section {
 }
 
 #stars2 {
+    z-index: 0;
+    overflow: hidden;
     width: 2px;
     height: 2px;
     background: transparent;
@@ -472,6 +543,8 @@ section {
 }
 
 #stars2:after {
+    z-index: 0;
+    overflow: hidden;
     content: '';
     position: absolute;
     top: 2000px;
@@ -531,6 +604,7 @@ section {
     986px 1529px #fff, 1667px 1137px #fff;
 }
 #stars3 {
+    overflow: hidden;
     width: 3px;
     height: 3px;
     background: transparent;
@@ -564,6 +638,7 @@ section {
 }
 
 stars3:after {
+    overflow: hidden;
     content: '';
     position: absolute;
     top: 2000px;
