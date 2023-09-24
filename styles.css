@@ -108,6 +108,28 @@ section {
     z-index: 0;
 }
 
+#github-icon {
+    transform: rotate(180deg);
+    opacity: 50%;
+}
+#github-icon:hover {
+    opacity: 100%;
+}
+
+#linkedin-icon {
+    opacity: 50%;
+}
+#linkedin-icon:hover {
+    opacity: 100%;
+}
+#email-icon {
+    opacity: 50%;
+}
+#email-icon:hover {
+    opacity: 100%;
+}
+
+
 #stars {
     z-index: 0;
     overflow: hidden;
