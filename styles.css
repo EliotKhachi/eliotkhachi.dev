@@ -28,8 +28,8 @@ body {
 }
 
 #title {
-    margin: 5px;
-    align-self: flex-start;
+  margin: 5px;
+  align-self: flex-start;
 }
 
 h2 {
@@ -72,6 +72,7 @@ a:hover {
 .container {
   display: flex;
   flex-direction: row;
+  margin-right: 20px;
   /* max-width: 1400px;
   justify-content: center;
   margin: 0 auto; */
@@ -90,7 +91,7 @@ section:hover {
 }
 
 /* ABOUT CSS */
-.about {
+.about-wrapper {
   flex-basis: 60%;
 }
 
@@ -106,14 +107,13 @@ section.projects {
   align-items: center;
   justify-items: center;
   font-size: 16px;
-  flex-basis: 40%;
-  height: 500px;
+  flex-basis: 50%;
   flex-grow: 1;
   overflow: auto;
 }
 
 #project {
-  margin: 10;
+  overflow: auto;
   opacity: var(--text-opacity);
   display: flex;
   flex-direction: column;
@@ -122,12 +122,14 @@ section.projects {
   text-align: center;
   flex-grow: 1;
   color: var(--primary-color);
+  transition: color 0.3s ease;
   width: 50%;
 }
 
 #project:hover {
   text-decoration: none;
   opacity: var(--text-opacity-on-hover);
+  color: white;
 }
 
 #project-title {
@@ -136,19 +138,23 @@ section.projects {
 
 /* ZETTELKASTEN CSS */
 section.zettelkasten {
+  overflow: auto;
   display: flex;
   flex-direction: column;
+  flex-basis: 50%;
 }
 
 #zettel {
   margin: 20px;
-  font-size: 16px;
+  font-size: 20px;
   opacity: var(--text-opacity);
   color: var(--primary-color);
+  transition: color 0.3s ease;
 }
 #zettel:hover {
   opacity: var(--text-opacity-on-hover);
   text-decoration: none;
+  color: white;
 }
 
 /* FOOTER CSS */
@@ -160,6 +166,7 @@ section.zettelkasten {
 
 #icon {
   opacity: 50%;
+  transition: opacity 0.3s ease;
   margin: 5px;
 }
 #icon:hover {
@@ -174,19 +181,23 @@ section.zettelkasten {
   }
 }
 
+/* Changes for mobile for layout and readability */
 @media screen and (max-width: 600px) {
   .container {
     flex-direction: column;
   }
-  :root {
-    --text-opacity: 100%;
-    --text-opacity-on-hover: 100%;
+  section {
+    background-color: var(--background-color-medium);
   }
-  #project:hover {
-    text-decoration: underline;
+  #project {
+    opacity: 100%;
+    color: white;
   }
-  #zettel:hover {
-    text-decoration: underline;
+  #zettel {
+    opacity: 100%;
+    color: white;
   }
-
+  #icon {
+    display: none;
+  }
 }
