@@ -45,7 +45,7 @@ body {
 
 h2 {
   margin: 20px;
-  font-size: 30px;
+  font-size: 36px;
   line-height: 45px;
 }
 
@@ -58,7 +58,8 @@ h3 {
 
 p {
   margin: 40px;
-  font-size: 20px;
+  font-size: 24px;
+  line-height: 35px;
 }
 
 a {
@@ -78,15 +79,14 @@ a:hover {
   max-width: 1400px;
   /* align-items: center; */
   margin: 0 auto;
+  z-index: 1;
 }
 
 .container {
   display: flex;
   flex-direction: row;
   margin-right: 20px;
-  /* max-width: 1400px;
-  justify-content: center;
-  margin: 0 auto; */
+  z-index: 1;
 }
 
 section {
@@ -145,6 +145,7 @@ section.projects {
 #project-title {
   font-size: 16px;
   margin: 5px;
+  line-height: 16px;
 }
 
 /* ZETTELKASTEN CSS */
@@ -153,6 +154,28 @@ section.zettelkasten {
   display: flex;
   flex-direction: column;
   flex-basis: 50%;
+}
+
+#zettels-header {
+  font-size: 24px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#enter-zettelkasten {
+  font-size: 20px;
+  align-self: center;
+  width: fit-content;
+  margin: 20px;
+  font-weight: 900;
+  background-color: var(--background-color-light);
+  padding: 10px;
+  border-radius: 40px;
+  border-color: black;
+  border-width: 4px;
+}
+#enter-zettelkasten:hover {
+  text-decoration: none;
 }
 
 #zettel {
@@ -183,31 +206,45 @@ section.zettelkasten {
   text-decoration: none;
 }
 
+#mobile-element {
+  display: none
+}
+
 /* MEDIA CSS */
 @media screen and (max-width: 1000px) {
   #project {
-    width: 75%;
+    /* width: 75%; */
+  }
+  section {
+    background-color: var(--background-color-medium);
+    padding-left: 10px;
+    padding-right: 10px;
   }
 }
 
 /* Changes for mobile for layout and readability */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .container {
     flex-direction: column;
   }
   section {
     background-color: var(--background-color-medium);
+    padding-left: 10px;
+    padding-right: 10px;
   }
   #project {
-    opacity: 100%;
+    opacity: 80%;
     color: white;
     width: 45%;
   }
   #zettel {
-    opacity: 100%;
+    opacity: 80%;
     color: white;
   }
   #icon {
     display: none;
+  }
+  #mobile-element {
+    display: inline;
   }
 }
