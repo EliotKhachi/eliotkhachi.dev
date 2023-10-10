@@ -1,0 +1,250 @@
+@import "stars.css"; /* BACKGROUND CSS */
+
+/* CSS VARIABLES */
+:root {
+  --primary-color: #a3acce;
+  --background-color-light: #1b2735;
+  --background-color-medium: #091320;
+  --background-color-dark: #090a0f;
+  --text-opacity: 70%;
+  --text-opacity-on-hover: 100%;
+  --img-opacity: 40%;
+  --img-opacity-on-hover: 50%;
+}
+
+/* GENERAL CSS */
+html {
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  opacity: var(--img-opacity);
+}
+img:hover {
+  opacity: var(--img-opacity-on-hover);
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background: radial-gradient(
+    ellipse,
+    var(--background-color-light) 0%,
+    var(--background-color-dark) 100%
+  );
+  color: var(--primary-color);
+  font-family: "JetBrains Mono", monospace;
+}
+
+#title {
+  margin: 5px;
+  align-self: flex-start;
+}
+
+h2 {
+  margin: 20px;
+  font-size: 36px;
+  line-height: 45px;
+}
+
+h3 {
+  font-size: 14px;
+  position: relative;
+  top: 10px;
+  left: 10px;
+}
+
+p {
+  margin: 40px;
+  font-size: 24px;
+  line-height: 35px;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LAYOUT CSS */
+.parent {
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  max-width: 1400px;
+  /* align-items: center; */
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  margin-right: 20px;
+  z-index: 1;
+}
+
+section {
+  border: 1px solid var(--primary-color);
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 5px;
+  z-index: 1;
+}
+
+section:hover {
+  background-color: var(--background-color-medium);
+  z-index: 1;
+}
+
+/* ABOUT CSS */
+.about-wrapper {
+  flex-basis: 60%;
+}
+
+/* DEEP DIVE CSS (right-hand div)*/
+.deep-dive {
+  flex-basis: 40%;
+}
+
+/* PROJECTS CSS */
+section.projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  font-size: 16px;
+  padding-top: 20px;
+}
+
+#project {
+  overflow: auto;
+  margin-left: 5px;
+  margin-right: 5px;
+  opacity: var(--text-opacity);
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+  width: 45%;
+  height: 100%;
+}
+
+#project:hover {
+  text-decoration: none;
+  opacity: var(--text-opacity-on-hover);
+  color: white;
+}
+
+#project-title {
+  font-size: 16px;
+  margin: 5px;
+  line-height: 16px;
+}
+
+/* ZETTELKASTEN CSS */
+section.zettelkasten {
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 50%;
+}
+
+#zettels-header {
+  font-size: 24px;
+  text-align: center;
+  text-decoration: underline;
+}
+
+#enter-zettelkasten {
+  font-size: 20px;
+  align-self: center;
+  width: fit-content;
+  margin: 20px;
+  font-weight: 900;
+  background-color: var(--background-color-light);
+  padding: 10px;
+  border-radius: 40px;
+  border-color: black;
+  border-width: 4px;
+}
+#enter-zettelkasten:hover {
+  text-decoration: none;
+}
+
+#zettel {
+  margin: 20px;
+  font-size: 20px;
+  opacity: var(--text-opacity);
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+#zettel:hover {
+  opacity: var(--text-opacity-on-hover);
+  text-decoration: none;
+  color: white;
+}
+
+/* FOOTER CSS */
+.footer {
+  display: flex;
+}
+
+#icon {
+  opacity: 50%;
+  transition: opacity 0.3s ease;
+  margin: 5px;
+}
+#icon:hover {
+  opacity: 100%;
+  text-decoration: none;
+}
+
+#mobile-element {
+  display: none
+}
+
+/* MEDIA CSS */
+@media screen and (max-width: 1000px) {
+  #project {
+    /* width: 75%; */
+  }
+  section {
+    background-color: var(--background-color-medium);
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+/* Changes for mobile for layout and readability */
+@media screen and (max-width: 700px) {
+  .container {
+    flex-direction: column;
+  }
+  section {
+    background-color: var(--background-color-medium);
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  #project {
+    opacity: 80%;
+    color: white;
+    width: 45%;
+  }
+  #zettel {
+    opacity: 80%;
+    color: white;
+  }
+  #icon {
+    display: none;
+  }
+  #mobile-element {
+    display: inline;
+  }
+}
