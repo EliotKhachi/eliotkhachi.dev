@@ -22,6 +22,8 @@ img {
 }
 
 body {
+  display: flex;
+  justify-content: center;
   height: 100%;
   width: 100%;
   overflow: auto;
@@ -32,6 +34,15 @@ body {
   );
   color: var(--primary-color);
   font-family: "JetBrains Mono", monospace;
+}
+
+.wrapper {
+  position: absolute;
+  left: 0px;
+}
+
+.content {
+  width: 1000px;
 }
 
 label {
@@ -46,8 +57,8 @@ input {
   margin-top: 40px;
   margin-bottom: 40px;
   font-size: 20px;
-  background-color:transparent;
-  border-style:none;
+  background-color: transparent;
+  border-style: none;
 }
 
 h2 {
@@ -136,7 +147,7 @@ button#tag {
   padding-bottom: 1px;
   background-color: transparent;
   color: var(--primary-color);
-  font-weight:400;
+  font-weight: 400;
   border-radius: 40px;
   cursor: pointer;
 }
@@ -176,11 +187,20 @@ button#tag {
     /* align-items: center;
     justify-content:center; */
   }
-
 }
 
-@media (min-width: 769px) and (max-width: 1024px) {
+/*@media (min-width: 769px) and (max-width: 1024px) {
+  body {
+    width: 900px;
+    display: flex;
+    justify-content: center;;
+    align-items: center;;
+  }
+  html {
+    width: 900px;
+  }
 }
+*/
 
 @media (min-width: 1025px) {
 }
