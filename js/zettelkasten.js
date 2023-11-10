@@ -1,5 +1,7 @@
 const darkColor = "#090a0f";
 const primaryColor = "#a3acce";
+
+// RENDER TAGS
 let jsonData;
 async function fetchData() {
   try {
@@ -47,12 +49,13 @@ function createTags() {
 
 function renderObjects() {
   const inputValue = tagInput.value;
-  const resultDiv = document.getElementById("result");
+  const resultDiv = document.getElementById("zettels");
   if (inputValue == "") {
     resultDiv.innerHTML = "";
     return;
   }
 
+  // RENDER ZETTELS
   // Clear the previous results
   resultDiv.innerHTML = "";
 
@@ -83,3 +86,60 @@ function renderObjects() {
 
 fetchData();
 renderObjects();
+
+// BLINKING HEADER
+const phrases = [
+  "Second Brain",
+  "Web of Knowledge",
+  "Zettelkasten",
+];
+let currentPhraseIndex = 0;
+let currentCharIndex = 0;
+let isDeleting = false;
+
+function typeText() {
+  const textContainer = document.getElementById("blinking-header-text");
+  const cursor = document.getElementById("cursor");
+
+  const currentPhrase = phrases[currentPhraseIndex];
+
+  if (isDeleting) {
+    // If we're at the last phrase, remove the cursor and exit the function.
+    if (currentPhraseIndex === phrases.length - 1) {
+      document.getElementById('cursor').classList.toggle('styleChanged');
+      return;
+    }
+    textContainer.textContent = currentPhrase.substring(
+      0,
+      currentCharIndex - 1
+    );
+    currentCharIndex--;
+
+    if (currentCharIndex === 0) {
+      isDeleting = false;
+      currentPhraseIndex = (currentPhraseIndex + 1) % phrases.length;
+
+      // Add a delay after fully deleting the text
+      setTimeout(() => {
+        setTimeout(typeText, 500);
+      }, 1000);
+    } else {
+      setTimeout(typeText, 100);
+    }
+  } else {
+    textContainer.textContent = currentPhrase.substring(
+      0,
+      currentCharIndex + 1
+    );
+    currentCharIndex++;
+
+    if (currentCharIndex > currentPhrase.length) {
+      isDeleting = true;
+      setTimeout(typeText, 500);
+    } else {
+      setTimeout(typeText, 100);
+    }
+  }
+}
+
+document.addEventListener("DOMContentLoaded", setTimeout(typeText, 1000));

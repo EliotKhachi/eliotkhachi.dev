@@ -1,15 +1,11 @@
-@import "stars.css"; /* BACKGROUND CSS */
 @import "main.css"; /* MAIN CSS */
-@import "github-markdown.css";
 
 /* GENERAL CSS */
 :root {
   --img-opacity: 100%;
   --img-opacity-on-hover: 100%;
- 
 }
-html {
-}
+
 body {
   display: flex;
   /* justify-content: center; */
@@ -20,13 +16,21 @@ body {
   left: 0px;
 }
 
-#title {
-  margin: 10px;
+.content {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1400px;
+  justify-content: center;
 }
 
-.content {
-  width: 100%;
-  max-width: 1000px;
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100px;
+  margin-bottom: 20px;
 }
 
 a {
@@ -34,37 +38,18 @@ a {
 }
 a:hover {
   opacity: 100%;
-  transition: opacity 0.3s ease
+  transition: opacity 0.3s ease;
 }
 p#zettel-link-tags {
   color: black;
   opacity: 80%;
 }
 
-.label-input {
-  display: flex;
-  flex-direction: row;
-  margin: 20px;
-}
-
-label {
-  color: var(--primary-color);
-  font-size: 20px;
-}
-
-input {
-  width: 100%;
-  color: var(--primary-color);
-  background-color: transparent;
-  border-style: none;
-  font-size: 20px;
-}
-
 ul,
 ol {
   font-size: 20px;
   line-height: 30px;
-  margin: 20px;
+  /* margin: 20px; */
 }
 
 th,
@@ -75,40 +60,88 @@ td {
   text-align: left;
 }
 th {
-  font: bold;
   background-color: var(--primary-color);
   color: var(--background-color-dark);
 }
 
 /* CLASS CSS */
-.container {
-  flex-direction: column;
-}
-
 .parent {
   display: flex;
   flex-direction: column;
-  padding: 20px;
 }
 
 /* ID CSS */
-#available-tags {
+
+/* Blinking Header */
+
+#blinking-header-text {
+  font-size: 40px;
+  line-height: 60px;
+  text-align: center;
+  position: relative;
+}
+
+#blinking-header {
+  display: flex;
+}
+
+#welcome {
+  font-size: 40px;
+  text-align: center;
+}
+
+#cursor {
+  position: relative;
+  height: 40px;
+  width: 0px;
+  border-style: solid;
+  border-width: 3px;
+  border-color: white;
+  animation: blink 0.7s infinite;
+  transition: border-color 0.5s ease;
+}
+
+#cursor.styleChanged {
+  border-color: transparent;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  51%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ZETTELS CSS */
+
+label {
+  color: var(--primary-color);
+  font-size: 20px;
+  width: 100%;
+  text-decoration: underline;
+}
+
+input {
+  width: fit-content;
+  color: var(--primary-color);
+  background-color: transparent;
+  border-style: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+#zettels-header-div {
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
 }
 
-#content {
-  display: flex;
-  flex-direction: column;
-  flex-basis: 90%;
-}
-
-#available-tags {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  margin-left: 20px;
-}
 button#tag {
   width: fit-content;
   font-size: 16px;
@@ -121,9 +154,12 @@ button#tag {
   font-weight: 400;
   border-radius: 40px;
   cursor: pointer;
+  border-style: solid;
+  border-width: 1px;
+  border-color: var(--primary-color);
 }
 
-#result {
+#zettels {
   display: flex;
   flex-wrap: wrap;
 }
@@ -131,8 +167,6 @@ button#tag {
 #zettel-link {
   margin: 10px;
   padding: 8px;
-  /* padding-top: 5px;
-  padding-bottom: 5px; */
   border-radius: 20px;
   font-weight: 900;
   font-size: 16px;
@@ -151,4 +185,26 @@ button#tag {
 
 #zettel-link-tags:hover {
   text-decoration: none;
+}
+
+#title {
+  margin: 26.8px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+/* Changes for tablet / half-window */
+@media (max-width: 1400px) {
+}
+
+/* Changes for mobile */
+@media (min-width: 0px) and (max-width: 650px) {
+  #welcome {
+    font-size: 36px;
+  }
+  #blinking-header-text {
+    font-size: 36px;
+  }
+  #zettels-header-div {
+  }
 }

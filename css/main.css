@@ -13,6 +13,36 @@
   --max-width: 1400px;
 }
 
+/* LAYOUT CSS */
+.parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: var(--max-width);
+  /* align-items: center; */
+  margin: 0 auto;
+  z-index: 1;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  /* overflow: hidden; */
+  z-index: 1;
+}
+
+section {
+  border: 1px solid var(--primary-color);
+  padding: 20px;
+  margin: 5px;
+  z-index: 1;
+}
+
+section:hover {
+  background-color: var(--background-color-medium);
+  z-index: 1;
+}
+
 /* GENERAL CSS */
 html {
   height: 100%;
@@ -45,27 +75,18 @@ body {
   font-family: "JetBrains Mono", monospace;
 }
 
-#title {
-  font-weight: 600;
-  margin: 20px;
-  font-size: 40px;
-  color: var(--primary-color);
-}
-#title:hover {
-  text-decoration: none;
-}
+
 
 h2 {
-  margin: 20px;
   font-size: 36px;
   line-height: 45px;
+  margin: 0;
 }
 
 h3 {
   font-size: 14px;
-  position: relative;
-  top: 10px;
-  left: 10px;
+  font-weight: 500;
+  margin: 5px;
 }
 
 p {
@@ -83,6 +104,36 @@ a:hover {
   text-decoration: underline;
 }
 
+/* TITLE CSS */
+
+.title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#title {
+  font-weight: 600;
+  margin-left: 20px;
+  font-size: 40px;
+  color: var(--primary-color);
+}
+#title:hover {
+  text-decoration: none;
+}
+
+#headshot {
+  width: 100px;
+  height: 100px;
+  opacity: 100%;
+  border-radius: 50px;
+}
+
+/* ABOUT CSS */
+
 #fingerprint {
   padding-left: 8px;
   padding-right: 8px;
@@ -96,38 +147,6 @@ a:hover {
   width:fit-content;
 }
 
-/* LAYOUT CSS */
-.parent {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  max-width: var(--max-width);
-  /* align-items: center; */
-  margin: 0 auto;
-  z-index: 1;
-}
-
-.container {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  z-index: 1;
-}
-
-section {
-  border: 1px solid var(--primary-color);
-  padding-left: 20px;
-  padding-right: 20px;
-  margin: 5px;
-  z-index: 1;
-}
-
-section:hover {
-  background-color: var(--background-color-medium);
-  z-index: 1;
-}
-
-/* ABOUT CSS */
 .about-wrapper {
   flex-basis: 60%;
 }
@@ -135,6 +154,10 @@ section:hover {
 /* DEEP DIVE CSS (right-hand div)*/
 .deep-dive {
   flex-basis: 40%;
+}
+
+section.about{
+  padding-bottom: 0px;
 }
 
 /* PROJECTS CSS */
@@ -191,7 +214,8 @@ section.zettelkasten {
   font-size: 20px;
   align-self: center;
   width: fit-content;
-  margin: 20px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   font-weight: 900;
   background-color: var(--background-color-light);
   padding: 10px;
@@ -205,8 +229,8 @@ section.zettelkasten {
 }
 
 #zettel {
-  margin: 20px;
-  font-size: 26px;
+  margin: 10px;
+  font-size: 22px;
   opacity: var(--text-opacity);
   color: var(--primary-color);
   transition: color 0.3s ease;
@@ -237,6 +261,7 @@ section.zettelkasten {
 }
 
 /* MEDIA CSS */
+/* Changes for tablet / half-window */
 @media (max-width: 1400px) {
   section {
     background-color: var(--background-color-medium);
@@ -254,7 +279,7 @@ section.zettelkasten {
   }
 }
 
-/* Changes for mobile for layout and readability */
+/* Changes for mobile */
 @media (min-width: 0px) and (max-width: 650px) {
   .container {
     flex-direction: column;
@@ -262,7 +287,9 @@ section.zettelkasten {
   section {
     background-color: var(--background-color-medium);
   }
-
+  h3 {
+    text-align: center;
+  }
   h2 {
     margin-left: 5px;
     margin-right: 5px;
@@ -286,5 +313,13 @@ section.zettelkasten {
   }
   #mobile-element {
     display: inline;
+  }
+  .title {
+    justify-content: center;
+    margin: 0;
+  }
+  #headshot {
+    width: 80px;
+    height: 80px;
   }
 }
