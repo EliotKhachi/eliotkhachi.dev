@@ -10,6 +10,7 @@
   --text-opacity-on-hover: 100%;
   --img-opacity: 40%;
   --img-opacity-on-hover: 50%;
+  --max-width: 1400px;
 }
 
 /* GENERAL CSS */
@@ -28,9 +29,13 @@ img:hover {
 }
 
 body {
+  margin: 0 auto;
   height: 100%;
   width: 100%;
   overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   background: radial-gradient(
     ellipse,
     var(--background-color-light) 0%,
@@ -41,8 +46,13 @@ body {
 }
 
 #title {
-  margin: 5px;
-  align-self: flex-start;
+  font-weight: 600;
+  margin: 20px;
+  font-size: 40px;
+  color: var(--primary-color);
+}
+#title:hover {
+  text-decoration: none;
 }
 
 h2 {
@@ -73,12 +83,25 @@ a:hover {
   text-decoration: underline;
 }
 
+#fingerprint {
+  padding-left: 8px;
+  padding-right: 8px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--primary-color);
+  border-radius: 12px;
+  font-size: 16px;
+  background-color: var(--background-color-light);
+  text-align: start;
+  width:fit-content;
+}
+
 /* LAYOUT CSS */
 .parent {
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
-  max-width: 1400px;
+  justify-content: center;
+  max-width: var(--max-width);
   /* align-items: center; */
   margin: 0 auto;
   z-index: 1;
@@ -87,7 +110,7 @@ a:hover {
 .container {
   display: flex;
   flex-direction: row;
-  margin-right: 20px;
+  overflow: hidden;
   z-index: 1;
 }
 
@@ -173,8 +196,9 @@ section.zettelkasten {
   background-color: var(--background-color-light);
   padding: 10px;
   border-radius: 40px;
-  border-color: black;
-  border-width: 4px;
+  border-color: var(--primary-color);
+  border-width: 1px;
+  border-style: solid;
 }
 #enter-zettelkasten:hover {
   text-decoration: none;
@@ -182,7 +206,7 @@ section.zettelkasten {
 
 #zettel {
   margin: 20px;
-  font-size: 20px;
+  font-size: 26px;
   opacity: var(--text-opacity);
   color: var(--primary-color);
   transition: color 0.3s ease;
@@ -209,31 +233,45 @@ section.zettelkasten {
 }
 
 #mobile-element {
-  display: none
+  display: none;
 }
 
 /* MEDIA CSS */
-@media screen and (max-width: 1000px) {
-  #project {
-    /* width: 75%; */
-  }
+@media (max-width: 1400px) {
   section {
     background-color: var(--background-color-medium);
-    padding-left: 10px;
-    padding-right: 10px;
+  }
+  h2 {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  p {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  #zettel {
+    font-size: 20px;
   }
 }
 
 /* Changes for mobile for layout and readability */
-@media screen and (max-width: 700px) {
+@media (min-width: 0px) and (max-width: 650px) {
   .container {
     flex-direction: column;
   }
   section {
     background-color: var(--background-color-medium);
-    padding-left: 0px;
-    padding-right: 0px;
   }
+
+  h2 {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  p {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
   #project {
     opacity: 80%;
     color: white;

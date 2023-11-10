@@ -1,39 +1,18 @@
 @import "stars.css"; /* BACKGROUND CSS */
+@import "main.css"; /* MAIN CSS */
+@import "github-markdown.css";
 
-/* CSS VARIABLES */
+/* GENERAL CSS */
 :root {
-  --primary-color: #a3acce;
-  --background-color-light: #1b2735;
-  --background-color-medium: #091320;
-  --background-color-dark: #090a0f;
-  --text-opacity: 70%;
-  --text-opacity-on-hover: 100%;
+  --img-opacity: 100%;
+  --img-opacity-on-hover: 100%;
+ 
 }
-
-/* ELEMENT CSS */
 html {
-  height: 100%;
-  width: 100%;
 }
-
-img {
-  width: 100%;
-  height: 100%;
-}
-
 body {
   display: flex;
-  justify-content: center;
-  height: 100%;
-  width: 100%;
-  overflow: auto;
-  background: radial-gradient(
-    ellipse,
-    var(--background-color-light) 0%,
-    var(--background-color-dark) 100%
-  );
-  color: var(--primary-color);
-  font-family: "JetBrains Mono", monospace;
+  /* justify-content: center; */
 }
 
 .wrapper {
@@ -41,50 +20,51 @@ body {
   left: 0px;
 }
 
+#title {
+  margin: 10px;
+}
+
 .content {
-  width: 1000px;
+  width: 100%;
+  max-width: 1000px;
+}
+
+a {
+  opacity: 100%;
+}
+a:hover {
+  opacity: 100%;
+  transition: opacity 0.3s ease
+}
+p#zettel-link-tags {
+  color: black;
+  opacity: 80%;
+}
+
+.label-input {
+  display: flex;
+  flex-direction: row;
+  margin: 20px;
 }
 
 label {
   color: var(--primary-color);
   font-size: 20px;
-  margin: 20px;
-  margin-right: 0px;
 }
 
 input {
+  width: 100%;
   color: var(--primary-color);
-  margin-top: 40px;
-  margin-bottom: 40px;
-  font-size: 20px;
   background-color: transparent;
   border-style: none;
-}
-
-h2 {
-  margin: 20px;
-  font-size: 36px;
-  line-height: 45px;
-}
-
-p {
-  margin: 40px;
-  font-size: 24px;
-  line-height: 35px;
-}
-
-a {
-  color: white;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
+  font-size: 20px;
 }
 
 ul,
 ol {
   font-size: 20px;
   line-height: 30px;
+  margin: 20px;
 }
 
 th,
@@ -102,13 +82,13 @@ th {
 
 /* CLASS CSS */
 .container {
-  display: flex;
   flex-direction: column;
 }
 
 .parent {
   display: flex;
   flex-direction: column;
+  padding: 20px;
 }
 
 /* ID CSS */
@@ -117,19 +97,10 @@ th {
   flex-direction: row;
 }
 
-#main-content {
+#content {
   display: flex;
   flex-direction: column;
   flex-basis: 90%;
-}
-
-#title {
-  margin: 20px;
-  font-size: 40px;
-  color: var(--primary-color);
-}
-#title:hover {
-  text-decoration: none;
 }
 
 #available-tags {
@@ -180,27 +151,4 @@ button#tag {
 
 #zettel-link-tags:hover {
   text-decoration: none;
-}
-
-@media (max-width: 768px) {
-  .parent {
-    /* align-items: center;
-    justify-content:center; */
-  }
-}
-
-/*@media (min-width: 769px) and (max-width: 1024px) {
-  body {
-    width: 900px;
-    display: flex;
-    justify-content: center;;
-    align-items: center;;
-  }
-  html {
-    width: 900px;
-  }
-}
-*/
-
-@media (min-width: 1025px) {
 }

@@ -1,0 +1,23 @@
+name: publish-website
+on:
+  push: 
+  branches:
+    - main
+jobs:
+  publish-website:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      
+      - name: Configure AWS credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-region: us-west-1
+          role-to-assume: 
+
+      - name: Sync files to S3
+      - run: aws s3 sync . s3://amazon-cloudfront-s3-secure-site-cus-s3bucketroot-1jdibk2916043 --exclude ".*"
+      - name: Create Cloudfront Invalidation
+      - run: aws cloudfront create-invalidation --distribution-id E2BYCO7WLM347W \
+        --paths "*"

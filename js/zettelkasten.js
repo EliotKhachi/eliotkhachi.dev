@@ -35,7 +35,7 @@ function createTags() {
     tag.setAttribute("isClicked", "false");
     tag.addEventListener("click", function () {
       tag.setAttribute("isClicked", "true");
-      tagInput.value = tag.textContent.slice(1);
+      tagInput.value = tag.textContent.slice(0);
       renderObjects();
       renderTags(previousLitTag, tag);
       previousLitTag = tag;

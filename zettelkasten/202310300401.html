@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>How to Encrypt Using GPG</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="how-to-encrypt-using-gpg">How to Encrypt Using GPG</h1>
+        <h2 id="pre-requisites">Pre-requisites</h2>
+        <ol>
+        <li>Install GPG or GnuPG, a free PGP-based signature and encryption software.<br />
+        <code>sudo apt-get install gpg</code></li>
+        <li>Get a public key<br />
+        You can encrypt files with either your public key or somebody else's (i.e. the recipient of your message).<br />
+        You can generate your own key with <code>gpg --full-generate-key</code>.<br />
+        Otherwise, download the recipient's key, and import it: <code>gpg --import recipient.key</code>.<br />
+        At this point, <code>gpg</code> should recognize the key (whether it was generated or imported) by the email address associated with it. Run <code>gpg --list-keys</code> to see for yourself.</li>
+        <li>Encrypt<br />
+        <code>gpg --recipient name@example.com --encrypt secret</code> will encrypt the file <code>secret</code> in your current directory and output it as <code>secret.gpg</code>. Replace <code>name@example.com</code> with the email address of the key you're encrypting with, and <code>secret</code> with the file you would like to encrypt.</li>
+        </ol>
+        <h2 id="references">References</h2>
+        <p><a href="https://www.golinuxcloud.com/tutorial-encrypt-decrypt-sign-file-gpg-key-linux/">Go Linux Cloud - https://www.golinuxcloud.com/tutorial-encrypt-decrypt-sign-file-gpg-key-linux/</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#cryptography</p>
+    </div>
+</body>
+</html>

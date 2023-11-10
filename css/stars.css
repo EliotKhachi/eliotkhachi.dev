@@ -1,5 +1,6 @@
 .wrapper {
     z-index: 0;
+    width: 100%;
 }
 
 #stars {

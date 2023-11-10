@@ -4,7 +4,7 @@ class Planets {
   constructor(_planetCount) {
     this.planetCount = _planetCount;
     this.planets = [];
-    this.gravityConstant = Math.pow(0.1,10);
+    this.gravityConstant = Math.pow(0.1,11);
   }
 
   isWithinBounds(planet, canvas) {

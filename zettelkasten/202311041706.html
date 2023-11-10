@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Java Source Code</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="java-source-code">Java Source Code</h1>
+        <p>Java source code (<code>.java</code>) is the code that is written by the programmer. They can contain a public class, multiple private classes, interface definition, enumerations, standalone methods, and/or anonymous inner classes.</p>
+        <h2 id="interface">Interface</h2>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="co">// MyInterface.java</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">interface</span> MyInterface {</span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="dt">void</span> <span class="fu">someMethod</span>();</span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>}</span></code></pre></div>
+        <h2 id="enumeration">Enumeration</h2>
+        <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">// Color.java</span></span>
+        <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">enum</span> <span class="bu">Color</span> {</span>
+        <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    RED, GREEN, BLUE</span>
+        <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>}</span></code></pre></div>
+        <h2 id="stand-alone-method">Stand-Alone Method</h2>
+        <div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="co">// MathUtils.java</span></span>
+        <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> MathUtils {</span>
+        <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>    <span class="kw">public</span> <span class="dt">static</span> <span class="dt">int</span> <span class="fu">add</span>(<span class="dt">int</span> a, <span class="dt">int</span> b) {</span>
+        <span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>            <span class="kw">return</span> a + b;</span>
+        <span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>                }</span>
+        <span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>}</span></code></pre></div>
+        <h2 id="anonymous-inner-class">Anonymous Inner Class</h2>
+        <div class="sourceCode" id="cb4"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="co">// Using an anonymous inner class</span></span>
+        <span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>button.<span class="fu">addActionListener</span>(<span class="kw">new</span> <span class="bu">ActionListener</span>() {</span>
+        <span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    <span class="at">@Override</span></span>
+        <span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>        <span class="kw">public</span> <span class="dt">void</span> <span class="fu">actionPerformed</span>(<span class="bu">ActionEvent</span> e) {</span>
+        <span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>                <span class="co">// Action to perform</span></span>
+        <span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>                    }</span>
+        <span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>});</span></code></pre></div>
+        <h2 id="tags">Tags</h2>
+        <p>#java</p>
+    </div>
+</body>
+</html>

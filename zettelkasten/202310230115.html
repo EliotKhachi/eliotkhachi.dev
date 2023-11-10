@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Connect Github Actions to Actions in AWS</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="connect-github-actions-to-actions-in-aws">Connect Github Actions to Actions in AWS</h1>
+        <ol>
+        <li><a href="./202310230118.html">Create an OIDC provider in your account</a>. This is a trust relationship that allows GitHub to authenticate and be authorized to perform actions in your account.</li>
+        <li>Create an IAM role in your account. You will then scope the IAM role’s trust relationship to the intended parts of your GitHub organization, repository, and branch for GitHub to assume and perform specific actions.</li>
+        <li>Assign a minimum level of permissions to the role.</li>
+        <li>Create a GitHub Actions workflow file in your repository that can invoke actions in your account.</li>
+        <li>Audit the role’s use with Amazon CloudTrail logs.</li>
+        </ol>
+        <h2 id="references">References</h2>
+        <p><a href="https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/">AWS Security Blog - Use IAM roles to connect Github Actions to actions in AWS</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#git #aws</p>
+    </div>
+</body>
+</html>

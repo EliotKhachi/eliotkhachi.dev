@@ -50,7 +50,6 @@ canvasProjectiles.addEventListener("mousedown", (e) => {
   mouseX = e.clientX;
   mouseY = e.clientY;
   const projectile = new Projectile(mouseX, mouseY, 5, 0, 0, 0, 0);
-  console.log(projectile);
   // Add the projectile to the list
   projectiles.push(projectile);
 });
@@ -63,12 +62,24 @@ canvasProjectiles.addEventListener("mousemove", (e) => {
 
     projectileVelocityX = (mouseX - newMouseX) / 100;
     projectileVelocityY = (mouseY - newMouseY) / 100;
+    // if (
+    //   newMouseX < 10 ||
+    //   newMouseX > canvasProjectiles.width -10||
+    //   newMouseY < 10 ||
+    //   newMouseY > canvasProjectiles.height-10 
+    // ) {
+    //   projectiles[projectiles.length - 1].hasBeenSet = true;
+    //   projectiles[projectiles.length - 1].set(
+    //     projectileVelocityX,
+    //     projectileVelocityY
+    //   );
+    // }
   }
 });
 
 canvasProjectiles.addEventListener("mouseup", (e) => {
-  projectiles[projectiles.length - 1 ].hasBeenSet=true;
-  projectiles[projectiles.length - 1 ].set(
+  projectiles[projectiles.length - 1].hasBeenSet = true;
+  projectiles[projectiles.length - 1].set(
     projectileVelocityX,
     projectileVelocityY
   );
@@ -92,15 +103,15 @@ function animateProjectiles() {
     projectile.update(planets);
 
     // Remove projectiles that are out of bounds
-    if (
-      projectile.x < 0 ||
-      projectile.x > canvasProjectiles.width ||
-      projectile.y < 0 ||
-      projectile.y > canvasProjectiles.height
-    ) {
-      projectiles.splice(i, 1);
-      i--;
-    }
+    // if (
+    //   projectile.x < 0 ||
+    //   projectile.x > canvasProjectiles.width ||
+    //   projectile.y < 0 ||
+    //   projectile.y > canvasProjectiles.height
+    // ) {
+    //   projectiles.splice(i, 1);
+    //   i--;
+    // }
   }
 
   requestAnimationFrame(animateProjectiles);

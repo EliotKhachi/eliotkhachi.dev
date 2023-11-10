@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Create a Database Docker Instance</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="create-a-database-docker-instance">Create a Database Docker Instance</h1>
+        <p>To create a database docker instance, you need to understand what environment variable to set within you docker instance, depending on the type of docker instance.</p>
+        <p>Taking PostgreSQL as an example, take the following command: <code>docker run --name sysml2-postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -e POSTGRES_DB=sysml2 -d postgres</code></p>
+        <p>In this case, we are setting the environment variable <code>POSTGRES_DB=sysml2</code>. Now we can connect to the database inside of this instance. <a href="./202310310359.html">Connect to a PostgreSQL Database Docker Instance</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#db #docker</p>
+    </div>
+</body>
+</html>
