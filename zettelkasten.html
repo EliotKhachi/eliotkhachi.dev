@@ -24,18 +24,14 @@
       </div>
       <div class="content">
         <div class="header">
-          <h2 id="welcome">Welcome to My</h2>
+          <h2 id="welcome">Welcome to My&nbsp;</h2>
           <div id="blinking-header">
             <h2 id="blinking-header-text"></h2>
             <div id="cursor"></div>
           </div>
         </div>
-        <h3>TAGS</h3>
-        <section id="available-tags"></section>
-
-        <div id="zettels-header-div">
-
-          <h3>ZETTELS: </h3>
+          <div id="zettels-header-div">
+            <h3>ZETTELS:</h3>
             <input
               onfocus="clearInput()"
               onchange="renderObjects()"
@@ -43,11 +39,16 @@
               id="tagInput"
               placeholder="Type a tag"
             />
-        </div>
-        <section id="zettels"></section>
+          </div>
+          <div class="zettels-tags-div">
+            <section id="zettels"></section>
+
+            <h3>TAGS</h3>
+            <section id="available-tags"></section>
+          </div>
         <h3>ABOUT</h3>
         <section id="about">
-          <h2>What is a Zettelkasten?</h2>
+          <h2 id="about-header">What is a Zettelkasten?</h2>
           <p>
             In essence, a Zettelkasten is a living and breathing network of
             notes.
@@ -79,7 +80,8 @@
             </li>
             <li>
               Notes that are linked often will continue to come up.
-              <span style="font-weight:bold" > Those are worth remembering</span>.
+              <span style="font-weight: bold"> Those are worth remembering</span
+              >.
             </li>
             <li>
               Notes that are linked infrequently are lost in the Zettelkasten.

@@ -89,9 +89,9 @@ renderObjects();
 
 // BLINKING HEADER
 const phrases = [
-  "Second Brain",
-  "Web of Knowledge",
-  "Zettelkasten",
+  " Second Brain",
+  " Web of Knowledge",
+  " Zettelkasten",
 ];
 let currentPhraseIndex = 0;
 let currentCharIndex = 0;
