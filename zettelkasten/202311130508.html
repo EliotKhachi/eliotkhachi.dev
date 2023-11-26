@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Longest Repeating Character Replacement</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="longest-repeating-character-replacement">Longest Repeating Character Replacement</h1>
+        <h2 id="problem">Problem</h2>
+        <p>You are given a string <code>s</code> and an integer <code>k</code>. You can choose any character of the string and change it to any other uppercase English character. You can perform this operation at most <code>k</code> times.</p>
+        <p>Return the length of the longest substring containing the same letter you can get after performing the above operations.</p>
+        <p>Example 1: Input: s = "ABAB", k = 2 Output: 4 Explanation: Replace the two 'A's with two 'B's or vice versa.</p>
+        <p>Example 2: Input: s = "AABABBA", k = 1 Output: 4 Explanation: Replace the one 'A' in the middle with 'B' and form "AABBBBA". The substring "BBBB" has the longest repeating letters, which is 4. There may exists other ways to achieve this answer too.</p>
+        <p>Constraints: 1 &lt;= s.length &lt;= 105 s consists of only uppercase English letters. 0 &lt;= k &lt;= s.length</p>
+        <h2 id="solution">Solution</h2>
+        <p>Let's call the operation of choosing any character and changing it to any other uppercase English character the "character match operation", or CMO for short.</p>
+        <p>Imagine a sliding window traversing over the string <code>s</code>. The window starts at index 0 and keeps expanding to the right while the number of CMOs required does not exceed the allowable <code>k</code>. Otherwise, if the # of required CMOs does exceed <code>k</code>, then contract the window from the left.</p>
+        <p><strong>Edge Cases:</strong></p>
+        <ul>
+        <li>if <code>k</code> is the same as the length of the string <code>s</code>, then simply return <code>k</code>.</li>
+        </ul>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>        <span class="dt">int</span> characterReplacement(string s, <span class="dt">int</span> k) {</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>            <span class="cf">if</span> (k == s.length()) <span class="cf">return</span> k;</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            <span class="dt">int</span> maxCount = <span class="dv">0</span>, l = <span class="dv">0</span>, r = <span class="dv">0</span>, result = <span class="dv">0</span>;</span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            vector&lt;<span class="dt">int</span>&gt; count(<span class="dv">26</span>);</span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>            <span class="cf">while</span> (r &lt; s.size()) {</span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>                count[s[r] - <span class="ch">&#39;A&#39;</span>]++;</span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>                maxCount = max(maxCount, count[s[r]-<span class="ch">&#39;A&#39;</span>]);</span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                <span class="cf">if</span> (r - l + <span class="dv">1</span> - maxCount &gt; k) {</span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>                count[s[l] - <span class="ch">&#39;A&#39;</span>]--;</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>                l++;</span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>                }</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>                result = max(result, r - l +<span class="dv">1</span>);</span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>                r++;</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>            }</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>            <span class="cf">return</span> result;</span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>        }</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>};</span>
+        <span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a></span></code></pre></div>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/longest-repeating-character-replacement/">Leetcode Problems - Longest Repeating Character Replacement</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

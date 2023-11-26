@@ -18,20 +18,53 @@
         <p>Given an integer array <code>nums</code>, return all the triplets <code>[nums[i], nums[j], nums[k]]</code> such that <code>i != j</code>, <code>i != k</code>, and <code>j != k</code>, and <code>nums[i] + nums[j] + nums[k] == 0</code>.</p>
         <p>Notice that the solution set must not contain duplicate triplets.</p>
         <p>Example 1:</p>
-        <p>Input: nums = [-1,0,1,2,-1,-4] Output: [[-1,-1,2],[-1,0,1]] Explanation: nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0. nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0. nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0. The distinct triplets are [-1,0,1] and [-1,-1,2]. Notice that the order of the output and the order of the triplets does not matter.</p>
+        <p>Input: nums = [-1,0,1,2,-1,-4]<br />
+        Output: [[-1,-1,2],[-1,0,1]]<br />
+        Explanation:<br />
+        nums[0] + nums[1] + nums[2] = (-1) + 0 + 1 = 0.<br />
+        nums[1] + nums[2] + nums[4] = 0 + 1 + (-1) = 0.<br />
+        nums[0] + nums[3] + nums[4] = (-1) + 2 + (-1) = 0.<br />
+        The distinct triplets are [-1,0,1] and [-1,-1,2].<br />
+        Notice that the order of the output and the order of the triplets does not matter.</p>
         <p>Example 2:</p>
-        <p>Input: nums = [0,1,1] Output: [] Explanation: The only possible triplet does not sum up to 0.</p>
+        <p>Input: nums = [0,1,1]<br />
+        Output: []<br />
+        Explanation: The only possible triplet does not sum up to 0.</p>
         <p>Example 3:</p>
-        <p>Input: nums = [0,0,0] Output: [[0,0,0]] Explanation: The only possible triplet sums up to 0.</p>
-        <p>Constraints: 3 &lt;= nums.length &lt;= 3000 -105 &lt;= nums[i] &lt;= 105</p>
+        <p>Input: nums = [0,0,0]<br />
+        Output: [[0,0,0]]<br />
+        Explanation: The only possible triplet sums up to 0.</p>
+        <p>Constraints:<br />
+        3 &lt;= nums.length &lt;= 3000<br />
+        -105 &lt;= nums[i] &lt;= 105</p>
         <h2 id="solution">Solution</h2>
-        <p>Declare 2d <code>result</code> vector.<br />
-        Sort the input vector in increasing order.<br />
-        Loop over the input vector.<br />
-        For each element at <code>i</code>, set a left and right pointer <code>l</code> and <code>r</code> for the rest of the array.<br />
-        while l &lt; r Evaluate the sum. If the sum is less than 0, increment the left pointer. Else if the sum is greater than 0, decrement the right pointer.<br />
-        Else add the triplet to the <code>result</code> vector.<br />
-        keep incrementing the left pointer and decrementing the right pointer until we pass any duplicates</p>
+        <ul>
+        <li>Declare 2d <code>result</code> vector.</li>
+        <li>Sort the input vector in increasing order.</li>
+        <li>Loop over the input vector.
+        <ul>
+        <li>For each element at <code>i</code>, set a left and right pointer <code>l</code> and <code>r</code> for the rest of the array.
+        <ul>
+        <li>while l &lt; r
+        <ul>
+        <li>Evaluate the sum.</li>
+        <li>If the sum is less than 0,
+        <ul>
+        <li>increment the left pointer.</li>
+        </ul></li>
+        <li>Else if the sum is greater than 0,
+        <ul>
+        <li>decrement the right pointer.</li>
+        </ul></li>
+        <li>Else
+        <ul>
+        <li>add the triplet to the <code>result</code> vector.</li>
+        <li>keep incrementing the left pointer and decrementing the right pointer until we pass any duplicates</li>
+        </ul></li>
+        </ul></li>
+        </ul></li>
+        </ul></li>
+        </ul>
         <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
         <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
         <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>        vector&lt;vector&lt;<span class="dt">int</span>&gt;&gt; threeSum(vector&lt;<span class="dt">int</span>&gt; nums) {</span>
@@ -66,8 +99,8 @@
         <span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>        }</span>
         <span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a>};</span>
         <span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a><span class="co">// Example:</span></span>
-        <span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a><span class="co">// [-1,0,1,2,-1,-4]</span></span>
-        <span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a><span class="co">// [-4,-1,-1,0,1,2]</span></span>
+        <span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a><span class="co">// input array: [-1,0,1,2,-1,-4]</span></span>
+        <span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a><span class="co">// sorted array: [-4,-1,-1,0,1,2]</span></span>
         <span id="cb1-37"><a href="#cb1-37" aria-hidden="true"></a></span>
         <span id="cb1-38"><a href="#cb1-38" aria-hidden="true"></a><span class="co">// i=0,l=1,r=5: sum = -3</span></span>
         <span id="cb1-39"><a href="#cb1-39" aria-hidden="true"></a><span class="co">// i=0,l=2,r=5: sum = -3</span></span>

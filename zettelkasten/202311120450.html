@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Best Time to Buy And Sell Stock</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="best-time-to-buy-and-sell-stock">Best Time to Buy And Sell Stock</h1>
+        <h2 id="problem">Problem</h2>
+        <p>You are given an array <code>prices</code> where <code>prices[i]</code> is the price of a given stock on the <code>ith</code> day.</p>
+        <p>You want to maximize your profit by choosing a <strong>single day</strong> to buy one stock and choosing a <strong>different day in the future</strong> to sell that stock.</p>
+        <p>Return the <em>maximum profit you can achieve from this transaction</em>. If you cannot achieve any profit, return <code>0</code>.</p>
+        <h2 id="solution">Solution</h2>
+        <p>Iterate over <code>prices</code> with a left and right pointer.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;algorithm&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        <span class="dt">int</span> maxProfit(vector&lt;<span class="dt">int</span>&gt; prices) {</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>            <span class="dt">int</span> maxProfit = <span class="dv">0</span>, l = <span class="dv">0</span>, r = <span class="dv">1</span>;</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            <span class="cf">while</span> (r &lt; prices.size()) {</span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>                <span class="cf">if</span> (prices[r] &gt; prices[l]) {</span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>                    maxProfit = max(maxProfit, prices[r] - prices[l]);</span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>                }</span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>                <span class="cf">else</span> {</span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>                    l = r;</span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                }</span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>                r++;</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>            }</span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>            <span class="cf">return</span> maxProfit;</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>        }</span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>};</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a><span class="co">// Example</span></span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a><span class="co">// [7,1,5,3,6,4]</span></span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a><span class="co">// l=0,r=1,maxP=0:</span></span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a><span class="co">// l=1,r=2,maxP=0: maxP=4</span></span>
+        <span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a><span class="co">// l=1,r=3,maxP=4: maxP=4</span></span>
+        <span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a><span class="co">// l=1,r=4,maxP=4: maxP=5</span></span>
+        <span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a><span class="co">// l=1,r=5,maxP=5: maxP=5</span></span></code></pre></div>
+        <p>Time: O(n)<br />
+        Space: O(1)</p>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">Leetcode Problems - Best Time to Buy and Sell Stock</a><br />
+        <a href="https://en.cppreference.com/w/cpp/header/algorithm">C++ STL - Algorithm</a><br />
+        <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">GeeksForGeeks - C++ Vector</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

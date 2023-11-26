@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Systems Modeling API and Services 1.0 Beta Specification</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="systems-modeling-api-and-services-10-beta-specification">Systems Modeling API and Services 1.0 Beta Specification</h1>
+        <h2 id="section-7---platform-independent-model-pim">Section 7 - Platform Independent Model (PIM)</h2>
+        <p>7.1.1 <strong>Record</strong> - A Record represents any data that is consumed (input) or produced (output) by the Systems Modeling API and Services. A Record is an abstract concept from which other concrete concepts inherit. A Record has the following attributes:</p>
+        <ul>
+        <li><em>id</em> is the UUID assigned to the record</li>
+        <li><em>resourceIdentifier</em> is an IRI for the record</li>
+        <li><em>alias</em> is a collection of other identifiers for this record, especially if the record was created or represented in other software applications and systems</li>
+        <li><em>humanIdentifier</em> is a human-friendly unique identifier for this record</li>
+        <li><em>description</em> is a statement that provides details about the record.</li>
+        </ul>
+        <p>The subclasses of records:</p>
+        <ol>
+        <li>Project</li>
+        <li>Commit</li>
+        <li>CommitReferences
+        <ul>
+        <li>Tag</li>
+        <li>Branch</li>
+        </ul></li>
+        <li>DataVersion</li>
+        <li>DataIdentity</li>
+        <li>Query</li>
+        </ol>
+        <p>Additionally, there is the <strong>Data</strong> interface, which represents any entity that can be created, updated, deleted, and queried by the Systems Modeling API and Services.</p>
+        <h2 id="section-8---platform-specific-models-psms">Section 8 - Platform Specific Models (PSMs)</h2>
+        <p>Each record has their own REST/HTTP PSM endpoint for POST, GET, PUT, and DELETE operations.</p>
+        <ol>
+        <li>ProjectService</li>
+        <li>ElementNavigationService</li>
+        <li>ProjectdataVersioningService</li>
+        <li>QueryService</li>
+        <li>ExternalRelationshipService</li>
+        <li>ProjectUsageService</li>
+        </ol>
+        <p>See next</p>
+        <h2 id="references">References</h2>
+        <p><a href="https://www.omg.org/spec/SystemsModelingAPI/1.0/Beta1/PDF">Systems Modeling API and Services 1.0 Beta Specification</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>
