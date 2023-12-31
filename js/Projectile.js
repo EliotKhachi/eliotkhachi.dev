@@ -9,16 +9,20 @@ class Projectile extends Circle {
     this.ax = ax;
     this.ay = ay;
     this.hasBeenSet= false;
+    // this.canDraw = true;
   }
 
   // Function to draw the projectile
   draw(ctx) {
+    // if (this.canDraw == true) {
     ctx.beginPath();
     ctx.arc(this.x - this.radius*2, this.y-this.radius*2, this.radius, 0, Math.PI * 2);
     ctx.fillStyle = this.color;
     ctx.fill();
     ctx.closePath();
+    // }
   }
+
   set(vx, vy) {
     this.vx = vx;
     this.vy = vy;
@@ -34,11 +38,18 @@ class Projectile extends Circle {
         this.ax +=
           dx < 0
             ? -Math.pow(dx * planet.radius, 2) * planets.gravityConstant
-            : Math.pow(dx * planet.radius, 2) * planets.gravityConstant;
+            : Math.pow(dx * planet.webkitURLradius, 2) * planets.gravityConstant;
         this.ay +=
           dy < 0
             ? -Math.pow(dy * planet.radius, 2) * planets.gravityConstant
             : Math.pow(dy * planet.radius, 2) * planets.gravityConstant;
+
+        // if d <= r1 + r2
+        // let distance = Math.sqrt(dx*dx + dy*dy);
+        // if ( distance <= this.radius + planet.radius )
+        //   // Don't draw this projectile
+        //   this.canDraw = true;
+       
       }
       this.vx += this.ax;
       this.vy += this.ay;
@@ -46,6 +57,7 @@ class Projectile extends Circle {
       this.y += this.vy;
       this.ax = 0;
       this.ay = 0;
+      console.log("I just updated this meteor's position");
     }
   }
 }
