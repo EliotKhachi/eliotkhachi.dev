@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>React Hook useEffect()</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="react-hook-useeffect">React Hook useEffect()</h1>
+        <p>The <code>useEffect</code> hook in react is used to handle component side effects, i.e. component <em>mount</em>, component <em>update</em>, and component <em>unmount</em>. With useEffect, you can define a function to be ran each time the component undergoes any lifecycle side effects.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">function</span> <span class="fu">Btn</span>() {</span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="kw">const</span> [count<span class="op">,</span> setCount] <span class="op">=</span> <span class="fu">useState</span>(<span class="dv">0</span>)<span class="op">;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="kw">const</span> [loaded <span class="op">,</span>setLoaded] <span class="op">=</span> <span class="fu">useState</span>(<span class="kw">false</span>)<span class="op">;</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="fu">useEffect</span>(</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        () <span class="kw">=&gt;</span> {</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>            <span class="fu">fetch</span>(<span class="st">&#39;foo&#39;</span>)<span class="op">.</span><span class="fu">then</span>(() <span class="kw">=&gt;</span> <span class="fu">setLoaded</span>(<span class="kw">true</span>) )</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>        }<span class="op">,</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>        [count]</span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>    )</span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>    <span class="cf">return</span> (</span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>        <span class="kw">&lt;button</span> <span class="ot">onClick</span><span class="op">=</span><span class="va">{</span>() <span class="kw">=&gt;</span> <span class="fu">setCount</span>(count<span class="op">+</span><span class="dv">1</span>)<span class="va">}</span><span class="kw">&gt;</span></span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>            <span class="va">{</span>count<span class="va">}</span></span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>        <span class="kw">&lt;/button</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="er">);</span></span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="er">}</span></span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a></span></code></pre></div>
+        <p>In the example above, I've defined a <code>useEffect</code> hook to update the <code>loaded</code> state of the component whenever <code>count</code> changes.</p>
+        <p>The useEffect hook takes into two arguments: 1) a function and 2) an array.<br />
+        The function defines the code to get executed, and the array is the list of dependencies that tell React when to call the function. In this case, when <code>count</code> changes, the function is called.<br />
+        You can also set an empty array for the dependencies, in which case, the function is only called when the component mounts.<br />
+        You can also forgo with passing in a second argument, in which case, the function is called for every component side effect. <strong>Note in this case that would result in an infinite loop since my useEffect function updates the component state.</strong></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

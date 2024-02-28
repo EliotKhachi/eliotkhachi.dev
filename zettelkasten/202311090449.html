@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Top K Frequent Elements</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="top-k-frequent-elements">Top K Frequent Elements</h1>
+        <h2 id="problem">Problem</h2>
+        <p>Given an integer array <code>nums</code> and an integer <code>k</code>, return the <code>k</code> most frequent elements. You may return the answer in any order.</p>
+        <p>Example 1: Input: nums = [1,1,1,2,2,3], k = 2 Output: [1,2]</p>
+        <p>Example 2: Input: nums = [1], k = 1 Output: [1]</p>
+        <p>Constraints: 1 &lt;= nums.length &lt;= 105 -104 &lt;= nums[i] &lt;= 104 k is in the range [1, the number of unique elements in the array]. It is guaranteed that the answer is unique.</p>
+        <p>Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.</p>
+        <h2 id="solution">Solution</h2>
+        <ol>
+        <li>Declare a vector of integers <code>topKFrequentElements</code>.</li>
+        <li>Declare a map <code>elementOccurrences</code>.</li>
+        <li>Iterate over <code>nums</code> and add each element to the map as a key, and increment its value: <code>elementOccurrences[nums[i]]++;</code></li>
+        <li>Sort the map in decreasing order based on values.</li>
+        <li>Loop through the map until the kth index, adding each key to <code>topKFrequentElements</code>.</li>
+        <li>return <code>topKFrequentElements</code>.</li>
+        </ol>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;map&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a></span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>        vector&lt;<span class="dt">int</span>&gt; topKFrequent(vector&lt;<span class="dt">int</span>&gt; nums, <span class="dt">int</span> k) {</span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            vector&lt;<span class="dt">int</span>&gt; topKFrequentElements; </span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>            map&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt; elementOccurrences;</span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>            vector&lt;pair&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt;&gt; elementOccurrencesPairs;</span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">int</span> n : nums) {</span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>                elementOccurrences[n]++; </span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>            }</span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a></span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="kw">auto</span> it : elementOccurrences) {</span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>                elementOccurrencesPairs.push_back(it);</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>            }</span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a></span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>            sort(elementOccurrencesPairs.begin(), elementOccurrencesPairs.end(), pairOfIntComparator);</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; k; i++) {</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>                topKFrequentElements.push_back((elementOccurrences.begin() + i)--&gt;first); </span>
+        <span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>            }</span>
+        <span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a></span>
+        <span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>            <span class="cf">return</span> topKFrequentElements;</span>
+        <span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>        }</span>
+        <span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+        <span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>        <span class="at">static</span> <span class="dt">bool</span> pairOfIntComparator(pair&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt; a, pair&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt; b) {</span>
+        <span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>            <span class="cf">return</span> a.second &gt; b.second;</span>
+        <span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>        }</span>
+        <span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>};</span></code></pre></div>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/top-k-frequent-elements/">Leetcoder Problems - Top K Frequent Elements</a><br />
+        <a href="https://www.geeksforgeeks.org/sorting-a-map-by-value-in-c-stl/">GeeksForGeeks - Sort Map by Values C++</a><br />
+        <a href="https://www.geeksforgeeks.org/sort-c-stl/">GeeksForGeeks - Sort Function C++</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

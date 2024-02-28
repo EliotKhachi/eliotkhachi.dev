@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Lexical Analysis</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="lexical-analysis">Lexical Analysis</h1>
+        <p>Lexical analysis is the process of taking in a character stream making up the source code, and grouping meaningful character sequences into <em>lexemes</em>, and assigning a <em>token</em> to each lexeme.</p>
+        <p>Tokens come in the form, <em>&lt;token-name, attribute-value&gt;</em></p>
+        <h2 id="example">Example</h2>
+        <p><code>position = initial + rate * 60</code> comes out to 7 lexemes:</p>
+        <ol>
+        <li>&lt;id,1&gt;</li>
+        <li>&lt;=&gt;</li>
+        <li>&lt;id,2&gt;</li>
+        <li>&lt;+&gt;</li>
+        <li>&lt;id,3&gt;</li>
+        <li>&lt;*&gt;</li>
+        <li>&lt;60&gt;</li>
+        </ol>
+        <p>A symbol-table is created in memory in the background for all the identifiers (id). Non-identifier tokens, i.e. operators, do not need to be in a symbol-table [1].</p>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>Id</th>
+        <th>name</th>
+        <th>type</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td>1</td>
+        <td>position</td>
+        <td>...</td>
+        </tr>
+        <tr class="even">
+        <td>2</td>
+        <td>initial</td>
+        <td>...</td>
+        </tr>
+        <tr class="odd">
+        <td>3</td>
+        <td>rate</td>
+        <td>...</td>
+        </tr>
+        </tbody>
+        </table>
+        <p>See next --&gt; Syntax Analysis</p>
+        <h2 id="footnotes">Footnotes</h2>
+        <p>Technically, we should also make a token like &lt;number,4&gt; for lexeme <code>60</code>, but we are deferring the discussion of numbers for now.</p>
+        <h2 id="references">References</h2>
+        <p>[1] <em>Compilers Principles, Techniques, and Tools; 2nd Edition</em> by Aho [2] <a href="./202402060533.html">Phases of a Compiler</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#cs</p>
+    </div>
+</body>
+</html>

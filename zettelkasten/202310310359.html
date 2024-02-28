@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Connect to a PostgreSQL Database Docker Instance</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="connect-to-a-postgresql-database-docker-instance">Connect to a PostgreSQL Database Docker Instance</h1>
+        <p><code>psql -h localhost -p 1010 -U postgres -d example-database</code></p>
+        <ul>
+        <li><code>psql</code> is the command used to connect to a postgres database.</li>
+        <li>The <code>-h localhost</code> option specifies that we are connecting from our local machine</li>
+        <li>The <code>-p 1010</code> option specifies that we are connecting from our local machine's (external) port 1010.</li>
+        <li>The <code>-U postgres</code> option specifies that we are connecting as the <code>postgres</code> user.</li>
+        <li>The <code>-d database-name</code> specifies that we are connecting to <em>example-database</em>, the name of the pre-existing database inside the docker instance.</li>
+        </ul>
+        <h2 id="tags">Tags</h2>
+        <p>#db #docker</p>
+    </div>
+</body>
+</html>

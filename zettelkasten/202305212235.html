@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Redirecting Standard Error</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="redirecting-standard-error">Redirecting Standard Error</h1>
+        <p>First, what is <a href="../202305212230/README.md">Standard Error</a>?</p>
+        <p>Another place we can put the error of a command is in a file. Similar to <a href="../202305212218/README.md">Redirecting Standard Output</a>, we use the <code>2&gt;</code> operator to <em>redirect</em> standard output into a file, overwriting its contents, and <code>2&gt;&gt;</code> to append to the file.</p>
+        <h2 id="example">Example</h2>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>$ <span class="fu">wc</span> -s <span class="op">2&gt;</span> errorfile  # redirect error to a file</span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>$ <span class="fu">cat</span> errorfile  # print the file<span class="st">&#39;s contents</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="st">wc: invalid option -- &#39;</span>s<span class="st">&#39;</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="st">Try &#39;</span>wc --help<span class="st">&#39; for more information.</span></span></code></pre></div>
+        <p>To redirect both standard output and standard error to a single file, use the <code>&amp;&gt;</code> or <code>&gt;&amp;</code> operators. Use the <code>&amp;&gt;&gt;</code> or <code>&gt;&gt;&amp;</code> operators for appending contents to the file.</p>
+        <h2 id="links">Links</h2>
+        <p><a href="../202305212246/README.md">Inputs, Outputs, and Errors</a></p>
+        <h2 id="references">References</h2>
+        <p><a href="https://linuxpocketguide.com/">Linux Pocket Guide</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

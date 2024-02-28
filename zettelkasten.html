@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Zettelkasten</title>
+    <link rel="stylesheet" type="text/css" href="css/zettelkasten.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+    </div>
+    <div class="parent">
+      <div class="title">
+        <img id="headshot" src="./resources/headshot.jpg" />
+        <a href="/" id="title"> Eliot Khachi </a>
+      </div>
+      <div class="content">
+        <div class="header">
+          <h2 id="welcome">Welcome to My&nbsp;</h2>
+          <div id="blinking-header">
+            <h2 id="blinking-header-text"></h2>
+            <div id="cursor"></div>
+          </div>
+        </div>
+          <div id="zettels-header-div">
+            <h3>ZETTELS:</h3>
+            <input
+              onfocus="clearInput()"
+              onchange="renderObjects()"
+              type="text"
+              id="tagInput"
+              placeholder="Type a tag"
+            />
+          </div>
+          <div class="zettels-tags-div">
+            <section id="zettels"></section>
+
+            <h3>TAGS</h3>
+            <section id="available-tags"></section>
+          </div>
+        <h3>ABOUT</h3>
+        <section id="about">
+          <h2 id="about-header">What is a Zettelkasten?</h2>
+          <p>
+            In essence, a Zettelkasten is a living and breathing network of
+            notes.
+          </p>
+          <p>
+            The problem with traditional note-taking is that it leads to
+            fragmented and cluttered information. You fragment information when
+            you box in ideas (folders). You clutter information when you
+            eventually acquire more folders than you can handle. The reality is
+            that concepts overlap and can't be categorized in just one way.
+            Luhmann believed that to truly understand complex subjects, you need
+            a system that encouraged an interplay of ideas.
+          </p>
+          <p>
+            Each note can be linked to others, allowing for the emergence of
+            unexpected connections, patterns, and insights. This makes it an
+            invaluable tool for research, writing, and personal growth. You can
+            take notes however you want, but ideally, each note is atomic--
+            meaning there is one idea being expressed per note; it can't be
+            broken down any further, like an atom. This makes each note complete
+            in and of itself, and easy to understand without context. Such notes
+            then serve as the foundation for complex ideas. The beauty is that
+            this system of note-taking grows organically because
+          </p>
+          <ol>
+            <li>
+              Each note exists on its own without a need for an over-arching
+              context.
+            </li>
+            <li>
+              Notes that are linked often will continue to come up.
+              <span style="font-weight: bold"> Those are worth remembering</span
+              >.
+            </li>
+            <li>
+              Notes that are linked infrequently are lost in the Zettelkasten.
+              <span style="font-weight: bold">Those are worth forgetting</span>.
+            </li>
+          </ol>
+
+          <p>
+            If you've never heard of a Zettelkasten before, I hope you now
+            understand its power and are amped to try it! (check out
+            <a href="https://obsidian.md/">Obsidian.md</a>)
+          </p>
+          <p>
+            Feel free to traverse my second brain up above by searching a tag
+            :).
+          </p>
+          <p>With curiosity,</p>
+
+          <p>Eliot</p>
+        </section>
+      </div>
+    </div>
+    <script src="js/zettelkasten.js"></script>
+  </body>
+</html>

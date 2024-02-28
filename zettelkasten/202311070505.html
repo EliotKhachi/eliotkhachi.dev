@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Two Sum</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="two-sum">Two Sum</h1>
+        <h2 id="problem">Problem</h2>
+        <p>Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.</p>
+        <p>You may assume that each input would have exactly one solution, and you may not use the same element twice.</p>
+        <p>You can return the answer in any order.</p>
+        <h2 id="solution">Solution</h2>
+        <p>initialize a vector<int> called <code>result</code>.<br />
+        initialize a map&lt;int,int&gt; called <code>seen</code>, where the key is the number and value is the index of the element in the array.<br />
+        Add the first number to <code>seen</code>.<br />
+        Start iterating at the second number in <code>nums</code>.<br />
+        Store the iterator <code>it = seen.find(target-nums[i])</code>.<br />
+        if <code>it</code> is found in <code>seen</code>, then add <code>i</code> and <code>it-&gt;second</code> (the iterator's value) to <code>result</code> and return <code>result</code>.<br />
+        Add the current element to the map.<br />
+        return <code>result</code>.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">using</span> <span class="kw">namespace</span> std;</span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>        vector&lt;<span class="dt">int</span>&gt; twoSum(vector&lt;<span class="dt">int</span>&gt;&amp; nums, <span class="dt">int</span> target) {</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            vector&lt;<span class="dt">int</span>&gt; result; <span class="co">// Declare result</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            map&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt; seen; <span class="co">// Declare seen</span></span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>            seen.insert(pair&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt;(nums[<span class="dv">0</span>], <span class="dv">0</span>)); <span class="co">// Add first element to seen</span></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a></span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>            <span class="co">// Loop through nums</span></span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">1</span>; i &lt; nums.size(); i++) {</span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                <span class="co">// If target - nums[i] is in the map...</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>                map&lt;<span class="dt">int</span>, <span class="dt">int</span>&gt;::iterator it = seen.find(target-nums[i]);</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>                <span class="cf">if</span> (it != seen.cend()) {</span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>                   result.push_back(i);</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>                   result.push_back(it-&gt;second);</span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>                   <span class="cf">return</span> result;</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>                }</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>                seen[nums[i]]=i;</span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>            }</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>            <span class="cf">return</span> result;</span>
+        <span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>        }</span>
+        <span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>};</span>
+        <span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a></span></code></pre></div>
+        <p>The space complexity is a function of the vector <code>result</code> and map <code>seen</code>. Each has a space complexity of O(n), so the space complexity is O(2n) or just <strong>O(n)</strong>.<br />
+        The time complexity is a function of the For Loop. The time complexity of the loop itself is O(n) and the <code>seen.find()</code> function is O(log(n)). The other operations' time complexities are constant. Therefore the time complexity of the method as a whole is <strong>O(nlog(n))</strong></p>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/two-sum/">Leetcode Problems - Two Sum</a><br />
+        <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">Geeks for Geeks - Vector in C++ STL</a><br />
+        <a href="https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/">Geeks for Geeks - Map in C++</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

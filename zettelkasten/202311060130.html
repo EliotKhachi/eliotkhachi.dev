@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Valid Anagram</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="valid-anagram">Valid Anagram</h1>
+        <h2 id="problem">Problem</h2>
+        <p>Given two strings <code>s</code> and <code>t</code>, return <code>true</code> if <code>t</code> is an anagram of <code>s</code>, and <code>false</code> otherwise.</p>
+        <p>An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+        <h2 id="solution">Solution</h2>
+        <p>Return <code>false</code> if <code>s</code> and <code>t</code> are different lengths.<br />
+        Initialize a map <code>characterOccurences</code> with <code>char</code>-<code>int</code> key-value pairs.<br />
+        Loop over <code>s</code> and increment the count of each character found.<br />
+        Loop over <code>t</code> and decrement the count of each character found. If at any point, the count of a character is negative, then return <code>false</code>.<br />
+        Return <code>true</code> otherwise.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>        <span class="dt">bool</span> isAnagram(string s, string t) {</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>            <span class="cf">if</span> (s.length() != t.length()) <span class="cf">return</span> <span class="kw">false</span>;</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            map&lt;<span class="dt">char</span>, <span class="dt">int</span>&gt; characterOccurences; <span class="co">// Declare map</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            <span class="co">// Loop over string s</span></span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">char</span> c : s) {</span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>                <span class="co">// Increment</span></span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>                characterOccurences[c]++; </span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>            }</span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>            <span class="co">// Loop over string t</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">char</span> c: t) {</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>                <span class="co">// Decrement and check if it&#39;s negative</span></span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>                <span class="cf">if</span> (--characterOccurences[c] &lt; <span class="dv">0</span>) {</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>                   <span class="cf">return</span> <span class="kw">false</span>; </span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>                }</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>            }</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>            <span class="cf">return</span> <span class="kw">true</span>;</span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>        }</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>};</span></code></pre></div>
+        <p>The space complexity is determined by the map <code>characterOccurences</code> since that is the only data structure we are allocating memory for in this solution. At the worst case, the map would hold 52 entries. Since this is a constant number, the space complexity simplifies to <strong>O(1)</strong>.<br />
+        The time complexity is the sum of the time complexities of each loop. This simplifies to <strong>O(n)</strong>, where n is the length of the string <code>s</code> and <code>t</code>.</p>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/valid-anagram/">LeetCode Problems - Valid Anagram</a><br />
+        <a href="https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/">GeekForGeeks - Maps in C++</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

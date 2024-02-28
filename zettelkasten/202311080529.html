@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Group Anagrams</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="group-anagrams">Group Anagrams</h1>
+        <h2 id="problem">Problem</h2>
+        <p>Given an array of strings <code>strs</code>, group the anagrams together. You can return the answer in any order.</p>
+        <p>An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.</p>
+        <p><strong>Example 1:</strong></p>
+        <p>Input: strs = ["eat","tea","tan","ate","nat","bat"] Output: [["bat"],["nat","tan"],["ate","eat","tea"]]</p>
+        <p><strong>Constraints:</strong></p>
+        <p>1 &lt;= strs.length &lt;= 104 0 &lt;= strs[i].length &lt;= 100 strs[i] consists of lowercase English letters.</p>
+        <h2 id="solution">Solution</h2>
+        <p>An anagram group contains strings that all share the same anagram "key". An anagram key represents the string's count of each character. Declare a vector of vector of strings <code>result</code>. Create a map of anagram keys to anagrams (string to vector<string>) Iterate over the array <code>strs</code>. Get each string's anagram key, and add the string to map[key]. Iterate over the map and add each vector of strings to the vector of vector of strings <code>result</code>.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;string&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;map&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>    <span class="kw">public</span>:</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>        vector&lt;vector&lt;string&gt;&gt; groupAnagrams(vector&lt;string&gt;&amp; strs) {</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            vector&lt;vector&lt;string&gt;&gt; result; <span class="co">// declare &lt;vector&lt;vector&lt;string&gt; `result`</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>            map&lt;string, vector&lt;string&gt;&gt; keysToAnagrams;</span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>            <span class="co">// Iterate over strs</span></span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">int</span> i = <span class="dv">0</span>; i &lt; strs.size(); i++) {</span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>                string anagramKey = getKey(strs[i]); <span class="co">// Create a string `anagramKey` for each str</span></span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                keysToAnagrams[anagramKey].push_back(strs[i]); <span class="co">// Add the string to a map `keysToAnagrams`</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>            }</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a></span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>            <span class="co">// Iterate over `keysToAnagrams` and add each set of anagrams to its own vector, and add the vector to `result` </span></span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="kw">auto</span> it = keysToAnagrams.begin(); it != keysToAnagrams.end(); it++) {</span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>                result.push_back(it-&gt;second);</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>            }</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a></span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>            <span class="cf">return</span> result;</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>        }</span>
+        <span id="cb1-24"><a href="#cb1-24" aria-hidden="true"></a>    </span>
+        <span id="cb1-25"><a href="#cb1-25" aria-hidden="true"></a>    <span class="kw">private</span>:</span>
+        <span id="cb1-26"><a href="#cb1-26" aria-hidden="true"></a>        string getKey(string s) {</span>
+        <span id="cb1-27"><a href="#cb1-27" aria-hidden="true"></a>            <span class="co">// Returns a unique key that represents that string&#39;s anagram configuration</span></span>
+        <span id="cb1-28"><a href="#cb1-28" aria-hidden="true"></a>            vector&lt;<span class="dt">int</span>&gt; count(<span class="dv">26</span>);</span>
+        <span id="cb1-29"><a href="#cb1-29" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">char</span> c : s) {</span>
+        <span id="cb1-30"><a href="#cb1-30" aria-hidden="true"></a>                count[c - <span class="ch">&#39;a&#39;</span>]++;</span>
+        <span id="cb1-31"><a href="#cb1-31" aria-hidden="true"></a>            }</span>
+        <span id="cb1-32"><a href="#cb1-32" aria-hidden="true"></a>            string key = <span class="st">&quot;&quot;</span>;</span>
+        <span id="cb1-33"><a href="#cb1-33" aria-hidden="true"></a>            <span class="cf">for</span> (<span class="dt">int</span> n : count) {</span>
+        <span id="cb1-34"><a href="#cb1-34" aria-hidden="true"></a>                key+=to_string(n)+<span class="ch">&#39;#&#39;</span>;</span>
+        <span id="cb1-35"><a href="#cb1-35" aria-hidden="true"></a>            }</span>
+        <span id="cb1-36"><a href="#cb1-36" aria-hidden="true"></a>            <span class="cf">return</span> key; <span class="co">// Returns a string of numbers separated by #s. Each number between two #s represents the count of the occurrence of a lowercase character, i.e. 0#0#0#4#0#0#6#0#0#0#0#0... represents a combination of &#39;ddddgggggg&#39;</span></span>
+        <span id="cb1-37"><a href="#cb1-37" aria-hidden="true"></a>        }</span>
+        <span id="cb1-38"><a href="#cb1-38" aria-hidden="true"></a>};</span></code></pre></div>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/group-anagrams/">Leetcode Problems - Group Anagrams</a><br />
+        <a href="https://www.geeksforgeeks.org/map-associative-containers-the-c-standard-template-library-stl/">GeeksForGeeks - Maps in C++</a><br />
+        <a href="https://www.geeksforgeeks.org/vector-in-cpp-stl/">GeeksForGeeks - Vectors in C++</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

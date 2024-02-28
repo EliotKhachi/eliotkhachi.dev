@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Network Load Balancer (NLB)</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="network-load-balancer-nlb">Network Load Balancer (NLB)</h1>
+        <p>Network load balancers (Layer 4) allow you to forward TCP &amp; UDP traffic to your instances.</p>
+        <h2 id="bandwidth-and-latency">Bandwidth and Latency</h2>
+        <p>It can handle millions of request per second at ~100 ms latency (less latency than Application Load Balancers (ALBs))</p>
+        <h2 id="target-groups">Target Groups</h2>
+        <ul>
+        <li>Target Groups can contain EC2 instances or private IP addresses.</li>
+        <li>NLBs can also target ALBs</li>
+        </ul>
+        <h2 id="references">References</h2>
+        <p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html">AWS Docs - Network Load Balancer</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#aws</p>
+    </div>
+</body>
+</html>

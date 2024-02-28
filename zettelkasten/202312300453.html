@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>MBSE Library vs React Library</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="mbse-library-vs-react-library">MBSE Library vs React Library</h1>
+        <table>
+        <thead>
+        <tr class="header">
+        <th>Abstracted Similarity</th>
+        <th>MBSE library</th>
+        <th>React library</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="odd">
+        <td><strong>Direction of Information Flow</strong></td>
+        <td>SysML files (User input) --&gt; MBSE Build Tool --&gt; The Model (Database) --&gt; Real DOM --&gt; Rendered Front-End App</td>
+        <td>React Components (User input) --&gt; Virtual DOM --&gt; Real DOM --&gt; Rendered Front-End App</td>
+        </tr>
+        <tr class="even">
+        <td><strong>File types and Programming Languages</strong></td>
+        <td>XML/SysML, Java</td>
+        <td>JSX, JavaScript</td>
+        </tr>
+        <tr class="odd">
+        <td><strong>Data Update Mechanism</strong></td>
+        <td>MBSE Build Tool (updates model)</td>
+        <td>Reconciliation (updates Virtual DOM)</td>
+        </tr>
+        </tbody>
+        </table>
+        <h2 id="tags">Tags</h2>
+        <p>#MBSE</p>
+    </div>
+</body>
+</html>

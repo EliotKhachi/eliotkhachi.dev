@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Contains Duplicate</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="contains-duplicate">Contains Duplicate</h1>
+        <h2 id="problem">Problem</h2>
+        <p>Given an integer array <code>nums</code>, return <code>true</code> if any value appears at least twice in the array, and return <code>false</code> if every element is distinct.</p>
+        <p>Constraints:<br />
+        1 &lt;= nums.length &lt;= 10^5<br />
+        -10^9 &lt;= nums[i] &lt;= 10^9</p>
+        <h2 id="solution">Solution</h2>
+        <p>Initialize a set <code>seen</code>.<br />
+        For every element in <code>nums</code>, if it doesn't exist in <code>seen</code>, then add it; otherwise, return <code>true</code>. After looping through the entire array, return <code>false</code>.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode c++"><code class="sourceCode cpp"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;iostream&gt;</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;vector&gt;</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="pp">#include </span><span class="im">&lt;set&gt;</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a><span class="kw">class</span> Solution {</span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a><span class="kw">public</span>:</span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>    <span class="dt">bool</span> containsDuplicate(vector&lt;<span class="dt">int</span>&gt;&amp; nums) {</span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>        set&lt;<span class="dt">int</span>&gt; seen; <span class="co">// Declare set</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a></span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>        <span class="co">// Loop through array</span></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>        <span class="cf">for</span> (<span class="dt">int</span> element : nums) {</span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>            <span class="co">// If we haven&#39;t seen the element yet...</span></span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>            <span class="cf">if</span> (seen.find(element) == seen.end()) { <span class="co">// seen.find(element) returns an iterator pointing to the element in the set. If the element doesn&#39;t exist in the set, tthen the iterator points to the position after the last element in the set.   </span></span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>                seen.insert(element);</span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>            }</span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a>            <span class="co">// If we have seen the element...</span></span>
+        <span id="cb1-17"><a href="#cb1-17" aria-hidden="true"></a>            <span class="cf">else</span> {</span>
+        <span id="cb1-18"><a href="#cb1-18" aria-hidden="true"></a>               <span class="cf">return</span> <span class="kw">true</span>; </span>
+        <span id="cb1-19"><a href="#cb1-19" aria-hidden="true"></a>            }</span>
+        <span id="cb1-20"><a href="#cb1-20" aria-hidden="true"></a>        }</span>
+        <span id="cb1-21"><a href="#cb1-21" aria-hidden="true"></a>        <span class="cf">return</span> <span class="kw">false</span>;</span>
+        <span id="cb1-22"><a href="#cb1-22" aria-hidden="true"></a>    }</span>
+        <span id="cb1-23"><a href="#cb1-23" aria-hidden="true"></a>};</span></code></pre></div>
+        <p>The space complexity is solely determined by the <code>seen</code> set since that is the only occurence of sustained memory allocation in this solution. In the worst-case, the set can contain 10^5 numbers since that is the given constraint of our <code>nums</code> array. This simplifies to a constant space complexity of <strong>O(1)</strong>.<br />
+        The time complexity is a function of the for loop and method calls within the loop:</p>
+        <ul>
+        <li><code>for (int element : nums)</code> - O(n), where n is the size of the array.</li>
+        <li><code>seen.find(element)</code> - O(log(n)), where n is the size of the set. Sets in C++ are stored as a binary search tree, and therefore searching the tree has a worst-case time-complexity of log(n).</li>
+        <li><code>seen.end()</code> - O(1)</li>
+        <li><code>seen.insert</code> - O(log(n)), where n is the size of the set.<br />
+        This gives us a worst-case time complexity of <strong>O(n*log(n)*log(n))</strong></li>
+        </ul>
+        <h2 id="references">References</h2>
+        <p><a href="https://leetcode.com/problems/contains-duplicate/">Leetcode Problems - Contains Duplicate</a><br />
+        <a href="https://www.geeksforgeeks.org/introduction-to-set-data-structure-and-algorithm-tutorials/">Geeks For Geeks - Introduction to Set Data Structure</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>
