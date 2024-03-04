@@ -27,10 +27,43 @@ body {
   flex-direction: column;
   box-sizing: border-box;
   width: 100%;
-  max-width: 1400px;
+  max-width: 1000px;
   justify-content: center;
+  padding: 10px;
 }
 
+.content p img {
+  margin: 10px;
+  max-width: 600px;
+  max-height: 600px;
+  height: auto;
+  width: auto;
+}
+
+.greeting {
+  display: flex;
+  flex-wrap: wrap;
+
+}
+
+p {
+  margin: 10px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  text-align: start;
+}
+h1 {
+  font-size: 2em; 
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 2px solid var(--background-color-light);
+}
+h2 {
+  font-size: 1.7em;
+  margin: 10px;
+  padding: 10px;
+  border-bottom: 2px solid var(--background-color-light);
+}
 
 a {
   opacity: 100%;
@@ -40,27 +73,43 @@ a:hover {
   transition: opacity 0.3s ease;
 }
 
-
 ul,
-ol {
-  font-size: 20px;
+ol,
+li {
+  font-size: 16px;
   line-height: 30px;
   /* margin: 20px; */
 }
 
-th,
-td {
-  font-size: 20px;
-  border: 3px solid var(--primary-color);
-  padding: 8px;
-  text-align: left;
-}
 th {
+  font-size: 20px;
   background-color: var(--primary-color);
   color: var(--background-color-dark);
+  font-weight: 800;
+}
+table {
+  border-collapse: collapse;
+  width: fit-content;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+tr td {
+  font-size: 14px;
+  padding: 4px;
+  border-collapse: collapse;
+}
+tr:nth-child(odd) {
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  color: var(--primary-color);
+}
+tr:nth-child(even) {
+  background-color: var(--primary-color);
+  border: 1px solid var(--primary-color);
+  color: black;
 }
 
-/* TITLE */ 
+/* TITLE */
 #title {
   margin: 26.8px;
   margin-left: 20px;
@@ -68,7 +117,7 @@ th {
 }
 
 /* Blinking Header */
-.header {
+.greeting {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -77,13 +126,14 @@ th {
   height: 100px;
 }
 
-
 #blinking-header-text {
   font-size: 36px;
   line-height: 60px;
   text-align: center;
   position: relative;
   margin: 0;
+  padding: 0;
+  border: none;
 }
 
 #blinking-header {
@@ -94,6 +144,8 @@ th {
   font-size: 36px;
   text-align: center;
   margin: 0;
+  padding: 0;
+  border: none;
 }
 
 #cursor {
@@ -185,8 +237,6 @@ p#zettel-link-tags {
   opacity: 80%;
 }
 
-
-
 #zettel-link {
   margin: 4px;
   padding: 4px;
@@ -214,8 +264,6 @@ p#zettel-link-tags {
 #about-header {
   text-align: center;
 }
-
-
 
 /* Changes for tablet / half-window */
 @media (max-width: 1400px) {

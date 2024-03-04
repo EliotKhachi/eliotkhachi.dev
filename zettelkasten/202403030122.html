@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>What is a TLS/SSL Certificate?</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="what-is-a-tlsssl-certificate">What is a TLS/SSL Certificate?</h1>
+        <p>Transport Layer Security (TLS) and its predecessor Secure Sockets Layer (SSL) are widely used security protocols with two functions:</p>
+        <ol>
+        <li>Authentication and verification</li>
+        <li>Data encryption (in-flight)</li>
+        </ol>
+        <p>Each TLS/SSL session consists of two keys:</p>
+        <ul>
+        <li>the public key used to encrypt the information (client-side)</li>
+        <li>a corresponding private key is used to decrypt the information (server-side)</li>
+        </ul>
+        <h2 id="types-of-certificates">Types of Certificates</h2>
+        <ul>
+        <li>Self-signed - least secure</li>
+        <li>Domain validated - checks that the SSL certificate is owned by the same person who owns the website's domain name</li>
+        <li>Fully authenticated - Organization passed a # of validation procedures to confirm the existence of the business, ownership of the domain, and the user's authority to apply for the certificate</li>
+        </ul>
+        <h2 id="references">References</h2>
+        <p><a href="https://www.digicert.com/resources/beginners-guide-to-tls-ssl-certificates-whitepaper-en-2019.pdf">DigiCert - Beginner's Guide to TLS/SSL Certificates</a></p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

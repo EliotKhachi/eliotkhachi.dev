@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Types of EBS Volumes</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="types-of-ebs-volumes">Types of EBS Volumes</h1>
+        <p>EBS volumes are characterized by size, throughput (rate of data transfer in terms of bytes per second), and IOPS (I/O Operations per second).</p>
+        <p>There are roughly 3 classes of EBS volumes.</p>
+        <h2 id="1-general-purpose">1. General Purpose</h2>
+        <p><strong>Description</strong></p>
+        <ul>
+        <li>gp2 / gp3 are general purpose SSD volumes that balances price and performance.</li>
+        <li>gp3 can set IOPS up to 16,000 independent of storage</li>
+        <li>gp2's IOPS is linked to storage (3 IOPS per GB), and maxes out at 16,000.<br />
+        <strong>Use Cases</strong> System boot volumes; virtual desktops; development and test environemnts.</li>
+        </ul>
+        <h2 id="2-high-performance">2. High-Performance</h2>
+        <p><strong>Description</strong></p>
+        <ul>
+        <li>io1 / io2 Block Express are high-performance SSD volume for low-latency and high throughput workloads.</li>
+        <li>Their IOPS can be provisioned (PIOPS) to be greater than 16,000.</li>
+        <li>io1 max storage = 16 TiB, max PIOPS = 64,000.</li>
+        <li>io2 max storage = 64 TiB, max PIOPS = 256,000.</li>
+        <li>Supports EBS Multi-Attach<br />
+        <strong>Use Cases</strong> Critical business applications that need, &gt;16,000, sustained IOPS; database workloads.</li>
+        </ul>
+        <h2 id="3-low-cost">3. Low Cost</h2>
+        <p><strong>Description</strong></p>
+        <ul>
+        <li>st1 (HDD): low cost HDD volume designed for high-frequency and throughput.</li>
+        <li>sc1 (HDD): lowest cost HDD volume designed for less frequently accessed workloads (archives).<br />
+        <strong>Use Cases</strong></li>
+        </ul>
+        <h2 id="references">References</h2>
+        <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html">AWS Docs - EBS Volume Types</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#aws #dva</p>
+    </div>
+</body>
+</html>

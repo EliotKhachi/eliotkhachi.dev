@@ -14,11 +14,9 @@
     </div>
     <div class="content">
         <h1 id="server-name-indication-sni">Server Name Indication (SNI)</h1>
-        <p>SNI solves the problem of loading multiple SSL certificates onto one web server (to serve different websites).</p>
-        <p>It's a "newer" protocol, and requires the client to indicate the hostname of the target server in the initial SSL handshake.</p>
-        <p>The server will then find the correct certificate or return the default one.</p>
+        <p>Server Name Indication is a newer protocol of the SSL/TLS handshake where the hostname is also part of the handshake. Servers can now have multiple SSL/TLS certificates that each correspond with different domains/websites. TLS handshakes are made with the appropriate website based on the hostname that the client indicated.</p>
         <h2 id="tags">Tags</h2>
-        <p>#aws #security #networks</p>
+        <p>#aws #security #networks #dva</p>
     </div>
 </body>
 </html>

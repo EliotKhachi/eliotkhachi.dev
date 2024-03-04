@@ -14,9 +14,13 @@
     </div>
     <div class="content">
         <h1 id="load-balancing">Load Balancing</h1>
-        <p>Load balancing is the act of forwarding internet traffic to multiple servers downstream the network.</p>
         <p>A load balancer is a server.</p>
-        <p><img src="../resources/zettel-images/202309150454/Thu_Sep_14_09:55:14_PM_PDT_2023.png" alt="image" ></p>
+        <p>Load balancing is the act of forwarding internet traffic to multiple servers downstream the network.</p>
+        <h2 id="how">How?</h2>
+        <p>A load balancer has a routing table that essentially map URLs to target groups. The routing can be based on the <em>path</em>, <em>subdomain</em>, and even <em>Query Strings</em> of the URL:<br />
+        <strong>Path</strong> - example.com/<em>users</em><br />
+        <strong>Subdomain</strong> - <em>one</em>.example.com<br />
+        <strong>Query Strings</strong> - example.com/users?<em>id=123&amp;order=false</em></p>
         <h2 id="reasons-to-use-a-load-balancer">Reasons to use a load balancer</h2>
         <ol>
         <li>Spread load across multiple downstream servers (in case of many simultaneous requests)</li>
