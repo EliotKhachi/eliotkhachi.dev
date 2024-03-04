@@ -14,7 +14,15 @@
     </div>
     <div class="content">
         <h1 id="amazon-machine-image-ami">Amazon Machine Image (AMI)</h1>
-        <p>Amazon Machine Images (AMIs) are used to template the information required to launch an instance. You can use that AMI to launch multiple instances with the same configuration. Define different AMIs to launch different kinds of instances.</p>
+        <p>You can register Amazon Machine Images (AMIs) to template the information required to launch an instance. This enforces standardization, thereby simplifying your application infrastructure, and improves boot times.</p>
+        <h2 id="what-do-you-define-with-an-ami">What do you define with an AMI?</h2>
+        <ul>
+        <li>Region (AMIs can only be used in the region they are defined)</li>
+        <li>Launch permissions (who can use the AMI)</li>
+        <li>Operating System</li>
+        <li>Architecture (32 or 64 bit)</li>
+        <li>Storage (<a href="./202309120445.html">Amazon EBS</a> or <a href="./202309120447.html">EC2 Instance Store</a>)</li>
+        </ul>
         <h2 id="references">References</h2>
         <p><a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html">Amazon Machine Images</a></p>
         <h2 id="tags">Tags</h2>

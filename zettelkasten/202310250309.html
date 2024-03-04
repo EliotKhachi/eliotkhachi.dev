@@ -15,6 +15,7 @@
     <div class="content">
         <h1 id="network-load-balancer-nlb">Network Load Balancer (NLB)</h1>
         <p>Network load balancers (Layer 4) allow you to forward TCP &amp; UDP traffic to your instances.</p>
+        <p><em>Note: The NLB itself accepts TCP &amp; UDP traffic but its security group needs to be configured to have inbound HTTP requests if your instances accept HTTP requests</em></p>
         <h2 id="bandwidth-and-latency">Bandwidth and Latency</h2>
         <p>It can handle millions of request per second at ~100 ms latency (less latency than Application Load Balancers (ALBs))</p>
         <h2 id="target-groups">Target Groups</h2>
