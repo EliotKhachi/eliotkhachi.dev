@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Things Learned from DVA-C02 AWS Quizzes</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="things-learned-from-dva-c02-aws-quizzes">Things Learned from DVA-C02 AWS Quizzes</h1>
+        <h2 id="section-7---elb--asg">Section 7 - ELB + ASG</h2>
+        <ul>
+        <li>When using an ALB to distribute traffic to EC2 instances, your EC2 instances will see requests as coming from your ALB's private IP address. To get the actual client's IP address, look for the <code>X-Forwarded-For</code> header in the ALB's HTTP request.</li>
+        <li>You can configure a Network Load Balancers to use a Static IP and static DNS name. In contrast, application load balancers can be configured to havea <em>elastic IP</em> for a static DNS name.</li>
+        <li>Server Name Indication (SNI) allows you to expose multiple HTTPS applications each with its own SSL certificate on the same listener (server).</li>
+        <li>ALB's can't route traffic to target groups based on client locations / geography.</li>
+        </ul>
+        <h2 id="section-8---rds--aurora--elasticache">Section 8 - RDS + Aurora + ElastiCache</h2>
+        <ul>
+        <li>Typically AWS charges you for moving data from one AZ to another, but for RDS read replicas within the same region, you don't pay the fee.</li>
+        </ul>
+        <h2 id="tags">Tags</h2>
+        <p>#aws #dva</p>
+    </div>
+</body>
+</html>
