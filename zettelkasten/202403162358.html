@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Caching Design Patterns</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="caching-design-patterns">Caching Design Patterns</h1>
+        <p><strong>Lazy Loading / Cache-Aside / Lazy Population</strong> - Caches <em>all</em> requested data, that is requested at <em>any</em> point. Think Cloudfront. <em>Cache is only filled with used data. Cache misses cause increased latency. Data in cache may be old</em></p>
+        <p><strong>WriteThrough</strong> - Add or update cache when database is updated. <em>Cache is never stale but may store a lot of never-read data; reads are quick but we have a write penalty.</em><br />
+        <strong>Cache Evictions</strong> - 1) explicit deletion of items in the cache, 2) when the cache memory is full, you delete items based on how recently they were used, or 3) you set a time-to-live (TTL) for the cache items (ranges from a few seconds to days).</p>
+        <p>All 3 of these caching design patterns can be combined for certain types of data, except you don't want to combine TTL with WriteThrough.</p>
+        <ul>
+        <li>Quote: There are only two hard things in Computer Science: cache invalidation and naming things.</li>
+        </ul>
+        <h2 id="tags">Tags</h2>
+        <p>#db</p>
+    </div>
+</body>
+</html>

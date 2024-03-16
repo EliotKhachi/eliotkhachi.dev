@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>AWS Secrets Manager</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="aws-secrets-manager">AWS Secrets Manager</h1>
+        <p>AWS Secrets Manager helps you manage, retrieve, and rotate database credentials, application credentials, OAuth tokens, API keys, and other secrets throughout their lifecycles.</p>
+        <h2 id="why">Why</h2>
+        <ul>
+        <li>Stores your security credentials behind the Secrets Manager service, and make calls to it when needed. <em>You assign an IAM role to your application to use the Secrets Manager Service.</em></li>
+        <li>Reduce the risk associated with storing your credentials in your application. <em>You never want to store credentials in the source code. The traditional approach is to store them as environment variables on the instance, and reference those environment variables in the source code. If the security group of the instance is configured properly, then storing the credentials as environment variables on that instance is pretty safe-- no?</em></li>
+        <li>Configure and automatic rotation schedule for your secrets, further improving security.</li>
+        </ul>
+        <h2 id="references">References</h2>
+        <p><a href="https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html">AWS Docs - Secrets Manager</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#aws</p>
+    </div>
+</body>
+</html>

@@ -1,188 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Eliot Khachi</title>
-    <link rel="stylesheet" type="text/css" href="css/main.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
-  </head>
-  <body>
-    <div class="wrapper">
-      <div id="stars"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Eliot Khachi</title>
+  <link rel="stylesheet" type="text/css" href="css/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/x-icon" href="resources/favicon.ico">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+  </div>
+  <div class="parent">
+    <div class="title">
+      <img id="headshot" src="./resources/headshot.jpg">
+      <!-- <h1 style="align-items: self-end; justify-content: flex-end;" id="title">Eliot Khachi</h1> -->
+      <h1 id="title">Eliot Khachi</h1>
     </div>
-    <div class="parent">
-      <div class="title">
-        <img id="headshot" src="./resources/headshot.jpg">
-        <!-- <h1 style="align-items: self-end; justify-content: flex-end;" id="title">Eliot Khachi</h1> -->
-        <h1 id="title">Eliot Khachi</h1>
+    <div class="container">
+      <div class="about-wrapper">
+        <h3>ABOUT</h3>
+        <section class="about">
+          <h2 id="greeting">
+            Hi, I'm Eliot. I try to build interesting and useful things.
+          </h2>
+          <p id="tech-interests">
+            My technical interests span widely: systems engineering,
+            design, embedded systems, and app development. If I'm not working on
+            something I'm unqualified to do, then something is wrong.
+          </p>
+          <h2 id="other-places-to-find-me">
+            My software projects are on
+            <a href="https://www.github.com/eliotkhachi">GitHub</a>. My notes,
+            thoughts, and psuedo-blogs are in my <a href="./zettelkasten.html">Zettelkasten</a>.
+            I'm not on social media much, but you can find me on
+            <a href="https://www.instagram.com/eliot_khachi">Instagram</a>.
+          </h2>
+          <p id="currently-working">
+            I have 2 years of experience as an integration and test engineer in the aerospace industry.
+            I am now exploring other engineering disciplines, technologies, and teams. I enjoy working on fun or
+            challenging projects
+            like
+            <a href="zettelkasten/202309091830.html">AqualinkD</a>,
+            <a href="https://www.eliotkhachi.dev/gravity.html">Gravity Game</a>, and
+            <a href="https://www.eliotkhachi.dev/resources/LEAP_Final_Report.pdf">
+              LEAP</a>
+          </p>
+          <p id="contact-me">
+            Email is the best way to contact me:
+            <a id="email" href="mailto:eliotkhachi@gmail.com">eliotkhachi@gmail.com</a>. You may encrypt your message
+            using GPG and <a target="_blank" href="/pgp">my public key</a> with fingerprint
+          </p>
+          <p id="fingerprint">9E20 5105 FE8E 1FFE 627C D2AA 522F 504B 8BA3 92C1</p>
+          </p>
+          <div class="footer">
+            <a href="https://www.github.com/eliotkhachi">
+              <svg id="icon" height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32"
+                data-view-component="true" class="octicon octicon-mark-github v-align-middle color-fg-default"
+                transform="rotate(180 0 0)">
+                <path fill="#000"
+                  d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.20 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.20.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.20-.82-2.20-.82-.44 1.10-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.20-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z">
+                </path>
+                <path fill="#a3acce"
+                  d="M0 8a8.013 8.013 0 0 1 5.45-7.59c.4-.08.55.17.55.38 0 .27-.01 1.13-.01 2.2 0 .75.25 1.23.54 1.48-1.78.20-3.65.88-3.65 3.95 0 .88.31 1.59.82 2.15-.08.2-.36 1.02.08 2.12 0 0 .67.22 2.2-.82.64.18 1.32.27 2 .27 .68 0 1.36-.09 2-.27 1.53 1.03 2.2.82 2.2.82 .44-1.1.16-1.92.08-2.12 .51-.56.82-1.28.82-2.15 0-3.06-1.86-3.75-3.64-3.95 .23-.2.44-.55.51-1.07 .46-.21 1.61-.55 2.33.66 .15.24.6.83 1.23.82 .67-.01.27-.38-.01-.53 -.34-.19-.73-.9-.82-1.13-.16-.45-.68-1.31-2.69-.94 0-.67-.01-1.3-.01-1.49 0-.21.15-.45.55-.38A7.995 7.995 0 0 1 16 8c0 4.42-3.58 8-8 8 -4.42 0-8-3.58-8-8Z">
+                </path>
+              </svg>
+            </a>
+
+            <a href="https://www.linkedin.com/in/eliot-khachi-426424159/">
+              <svg id="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" data-supported-dps="24x24"
+                fill="#a3acce" class="mercado-match" width="36" height="36" focusable="false">
+                <path
+                  d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z">
+                </path>
+              </svg>
+            </a>
+            <a href="resources/Resume.pdf">
+              <svg id="icon" version="1.0" xmlns="http://www.w3.org/2000/svg" width="32" height="35"
+                viewBox="0 0 512 512" preserveAspectRatio="xMidYMid meet">
+
+                <g transform="translate(0.000000,512.000000) scale(0.100000,-0.100000)" fill="#000000" stroke="none">
+                  <path fill="#a3acce" d="M1008 5074 c-154 -37 -283 -155 -328 -301 -20 -64 -20 -90 -20 -2214
+0 -2150 0 -2150 21 -2211 22 -67 71 -148 116 -190 51 -48 144 -97 217 -113 63
+-14 237 -15 1576 -13 l1505 3 56 21 c125 48 208 124 266 242 l38 76 0 2185 0
+2186 -36 76 c-65 135 -190 232 -333 258 -41 8 -520 11 -1540 10 -1229 -1
+-1491 -3 -1538 -15z m3069 -245 c40 -15 92 -67 114 -114 18 -39 19 -116 19
+-2145 0 -1454 -3 -2117 -11 -2143 -6 -21 -26 -56 -45 -77 -69 -76 70 -70
+-1601 -70 l-1499 0 -46 29 c-32 20 -53 44 -72 82 l-26 53 0 2116 0 2116 26 53
+c19 38 40 62 72 82 l46 29 1497 0 c1032 0 1506 -3 1526 -11z" />
+                  <path fill="#a3acce" d="M2409 4407 c-105 -44 -159 -100 -194 -202 -20 -60 -23 -189 -5 -266
+18 -81 83 -209 135 -267 155 -173 367 -119 486 123 55 114 72 190 67 300 -6
+110 -37 183 -104 245 -69 63 -122 83 -234 87 -82 3 -103 0 -151 -20z" />
+                  <path fill="#a3acce" d="M2140 3418 c-237 -50 -310 -108 -310 -245 0 -32 -7 -141 -15 -243
+l-15 -184 23 -24 c37 -40 147 -118 227 -160 154 -83 315 -122 505 -122 193 0
+357 40 514 126 74 41 184 119 220 158 l24 26 -17 252 c-17 245 -18 254 -44
+292 -34 50 -90 78 -222 112 -91 23 -105 25 -114 12 -6 -9 -60 -178 -121 -377
+-71 -233 -112 -354 -116 -342 -4 10 -11 100 -15 201 l-7 183 -43 53 -44 53 50
+51 c28 28 50 60 50 71 0 32 -71 102 -105 102 -33 0 -105 -69 -105 -102 0 -10
+21 -42 46 -70 l46 -51 -36 -44 c-47 -57 -56 -84 -56 -160 0 -115 -13 -307 -20
+-299 -4 4 -56 168 -114 363 -59 195 -109 361 -111 368 -5 14 -12 14 -75 0z" />
+                  <path fill="#a3acce" d="M1432 2045 c-34 -15 -62 -63 -62 -107 0 -42 36 -86 79 -98 27 -7 381
+-10 1133 -8 1229 3 1135 -3 1159 78 17 55 -4 109 -51 132 -33 17 -107 18
+-1130 18 -926 -1 -1100 -3 -1128 -15z" />
+                  <path fill="#a3acce" d="M1509 1530 c-95 -6 -112 -14 -130 -67 -16 -51 2 -108 44 -133 31 -19
+59 -20 1137 -20 1072 0 1106 1 1136 19 43 26 61 79 45 132 -23 77 61 72 -1104
+73 -573 0 -1081 -1 -1128 -4z" />
+                  <path fill="#a3acce" d="M1408 991 c-29 -26 -33 -35 -33 -81 0 -46 4 -55 33 -81 l32 -29 1120
+0 1120 0 32 29 c29 26 33 35 33 81 0 46 -4 55 -33 81 l-32 29 -1120 0 -1120 0
+-32 -29z" />
+                </g>
+              </svg>
+            </a>
+          </div>
+        </section>
       </div>
-      <div class="container">
-        <div class="about-wrapper">
-          <h3>ABOUT</h3>
-          <section class="about">
-            <h2 id="greeting">
-              Hi, I'm Eliot. I try to build interesting and useful things.
-            </h2>
-            <p id="tech-interests">
-              My technical interests span widely: systems engineering,
-              design, embedded systems, and app development. If I'm not working on
-              something I'm unqualified to do, then something is wrong.
-            </p>
-            <h2 id="other-places-to-find-me">
-              My software projects are on
-              <a href="https://www.github.com/eliotkhachi">GitHub</a>. My notes,
-              thoughts, and psuedo-blogs are in my <a href="./zettelkasten.html">Zettelkasten</a>.
-              I'm not on social media much, but you can find me on
-              <a href="https://www.instagram.com/eliot_khachi">Instagram</a>.
-            </h2>
-            <p id="currently-working">
-              I have 2 years of experience as an integration and test engineer in the aerospace industry. 
-              I am now exploring other engineering disciplines, technologies, and teams. I enjoy working on fun or challenging projects 
-              like
-              <a href="zettelkasten/202309091830.html"
-                >AqualinkD</a
-              >, 
-              <a href="https://www.eliotkhachi.dev/gravity.html"
-                >Gravity Game</a
-              >, and 
-              <a href="https://www.eliotkhachi.dev/resources/LEAP_Final_Report.pdf">
-                LEAP</a>
-            </p>
-            <p id="contact-me">
-              Email is the best way to contact me:
-              <a id="email" href="mailto:eliotkhachi@gmail.com"
-                >eliotkhachi@gmail.com</a
-              >. You may encrypt your message using GPG and <a target="_blank" href="/pgp">my public key</a> with fingerprint</p>
-              <p id="fingerprint">9E20 5105 FE8E 1FFE 627C  D2AA 522F 504B 8BA3 92C1</p>
-            </p>
-            <div class="footer">
-              <a href="https://www.github.com/eliotkhachi">
-                <svg
-                  id="icon"
-                  height="32"
-                  aria-hidden="true"
-                  viewBox="0 0 16 16"
-                  version="1.1"
-                  width="32"
-                  data-view-component="true"
-                  class="octicon octicon-mark-github v-align-middle color-fg-default"
-                  transform="rotate(180 0 0)"
-                >
-                  <path
-                    fill="#000"
-                    d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.20 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.20.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.20-.82-2.20-.82-.44 1.10-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.20-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"
-                  ></path>
-                  <path
-                    fill="#a3acce"
-                    d="M0 8a8.013 8.013 0 0 1 5.45-7.59c.4-.08.55.17.55.38 0 .27-.01 1.13-.01 2.2 0 .75.25 1.23.54 1.48-1.78.20-3.65.88-3.65 3.95 0 .88.31 1.59.82 2.15-.08.2-.36 1.02.08 2.12 0 0 .67.22 2.2-.82.64.18 1.32.27 2 .27 .68 0 1.36-.09 2-.27 1.53 1.03 2.2.82 2.2.82 .44-1.1.16-1.92.08-2.12 .51-.56.82-1.28.82-2.15 0-3.06-1.86-3.75-3.64-3.95 .23-.2.44-.55.51-1.07 .46-.21 1.61-.55 2.33.66 .15.24.6.83 1.23.82 .67-.01.27-.38-.01-.53 -.34-.19-.73-.9-.82-1.13-.16-.45-.68-1.31-2.69-.94 0-.67-.01-1.3-.01-1.49 0-.21.15-.45.55-.38A7.995 7.995 0 0 1 16 8c0 4.42-3.58 8-8 8 -4.42 0-8-3.58-8-8Z"
-                  ></path>
-                </svg>
-              </a>
+      <div class="deep-dive">
+        <h3>PROJECTS</h3>
+        <section class="projects">
+          <a id="project" href="zettelkasten/202309091830.html">
+            <img src="./resources/aqualinkd-thumbnail.png" alt="AqualinkD Thumbnail" />
+            <p id="project-title">AqualinkD</p>
+          </a>
+          <a id="project" href="gravity.html">
+            <video autoplay muted loop playsinline preload="metadata" source src="./resources/gravity-game-video.mp4"
+              type="video/webm">
+            </video>
+            <p id="project-title">Gravity Game</p>
+          </a>
+          <a id="project" href="./resources/CFD_Final_Report.pdf">
+            <img src="./resources/CFD-thumbnail.png" alt="Lid Driven Square Cavity Thumbnail" />
+            <p id="project-title">Lid Driven Square Cavity</p>
+          </a>
+          <a id="project" href="./resources/SS_Final_Report.pdf">
+            <img src="./resources/spacecraft-thumbnail.png" alt="SS Thumbnail" />
+            <p id="project-title">Spacecraft Stability Project</p>
+          </a>
+          <a id="project" href="./resources/EFIS_Final_Report.pdf">
+            <img src="./resources/EFIS-thumbnail.png" alt="EFIS Thumbnail" />
+            <p id="project-title">Electronic Flight Instrument System</p>
+          </a>
+          <a id="project" href="./resources/LEAP_Final_Report.pdf">
+            <video autoplay muted loop playsinline preload="metadata">
+              <source src="./resources/LEAP-test-video.MP4" type="video/mp4">
+            </video>
 
-              <a href="https://www.linkedin.com/in/eliot-khachi-426424159/">
-                <svg
-                  id="icon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  data-supported-dps="24x24"
-                  fill="#a3acce"
-                  class="mercado-match"
-                  width="36"
-                  height="36"
-                  focusable="false"
-                >
-                  <path
-                    d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"
-                  ></path>
-                </svg>
-              </a>
-                          </div>
-          </section>
-        </div>
-        <div class="deep-dive">
-          <h3>PROJECTS</h3>
-          <section class="projects">
-            <a id="project" href="zettelkasten/202309091830.html">
-              <img src="./resources/aqualinkd-thumbnail.png" alt="AqualinkD Thumbnail" />
-              <p id="project-title">AqualinkD</p>
-            </a>
-            <a
-              id="project"
-              href="gravity.html"
-            >
-              <video autoplay muted loop playsinline preload="metadata"
-                source src="./resources/gravity-game-video.mp4" type="video/webm"
-              >
-              </video>
-              <p id="project-title">Gravity Game</p>
-            </a>
-            <a
-              id="project"
-              href="./resources/CFD_Final_Report.pdf"
-            >
-              <img
-                src="./resources/CFD-thumbnail.png"
-                alt="Lid Driven Square Cavity Thumbnail"
-              />
-              <p id="project-title">Lid Driven Square Cavity</p>
-            </a>
-                        <a
-              id="project"
-              href="./resources/SS_Final_Report.pdf"
-            >
-              <img src="./resources/spacecraft-thumbnail.png" alt="SS Thumbnail" />
-              <p id="project-title">Spacecraft Stability Project</p>
-            </a>
-<a
-              id="project"
-              href="./resources/EFIS_Final_Report.pdf"
-            >
-              <img src="./resources/EFIS-thumbnail.png" alt="EFIS Thumbnail" />
-              <p id="project-title">Electronic Flight Instrument System</p>
-            </a>
-<a
-              id="project"
-              href="./resources/LEAP_Final_Report.pdf"
-            >
-                <video autoplay muted loop playsinline preload="metadata">
-                  <source src="./resources/LEAP-test-video.MP4" type="video/mp4">
-                </video>
+            <p id="project-title">Liquid Rocket Engine Project</p>
+          </a>
 
-              <p id="project-title">Liquid Rocket Engine Project</p>
-            </a>
-
-          </section>
-          <h3>FEATURED ZETTELS</h3>
-          <section class="zettelkasten">
-            <!-- <h2 id="zettels-header">Featured</h2> -->
-            <a
-              id="zettel"
-              href="zettelkasten/202305212246.html"
-              >Shell Fundamentals<span id="mobile-element"> ➔</span></a
-            >
-            <a
-              id="zettel"
-              href="zettelkasten/202308150020.html"
-              >Man's Search For Meaning<span id="mobile-element"> ➔</span></a
-            >
-            <a
-              id="zettel"
-              href="zettelkasten/202309242334.html"
-              >Deep Work<span id="mobile-element"> ➔</span></a
-            >
-            <a id ="enter-zettelkasten" href="zettelkasten.html">See more<span> ➔</span></a>
-          </section>
-        </div>
+        </section>
+        <h3>FEATURED ZETTELS</h3>
+        <section class="zettelkasten">
+          <!-- <h2 id="zettels-header">Featured</h2> -->
+          <a id="zettel" href="zettelkasten/202305212246.html">Shell Fundamentals<span id="mobile-element"> ➔</span></a>
+          <a id="zettel" href="zettelkasten/202308150020.html">Man's Search For Meaning<span id="mobile-element">
+              ➔</span></a>
+          <a id="zettel" href="zettelkasten/202309242334.html">Deep Work<span id="mobile-element"> ➔</span></a>
+          <a id="enter-zettelkasten" href="zettelkasten.html">See more<span> ➔</span></a>
+        </section>
       </div>
     </div>
-    <script src="js/main.js"></script>
-  </body>
+  </div>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
