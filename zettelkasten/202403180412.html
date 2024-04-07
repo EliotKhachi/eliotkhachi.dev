@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>One-to-One Relationships</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="one-to-one-relationships">One-to-One Relationships</h1>
+        <p>The most straightforward kind of relationship is one-to-one. They can be mapped with a single class. There's only one way to do it.</p>
+        <pre class="mysql"><code>create table icecream_flavor (
+            icecream_flavor_id int primary key auto_increment,
+            icecream_ingredients_id int not null,
+            flavor_name varchar(50) not null
+        );
+        </code></pre>
+        <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> IcecreamFlavor{</span>
+        <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="dt">int</span> icecreamFlavorId;</span>
+        <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>    <span class="dt">int</span> icecreamIngredientsId;</span>
+        <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    <span class="bu">String</span> flavorName;</span>
+        <span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>}</span></code></pre></div>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

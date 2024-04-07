@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>One-to-Many Relationship</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="one-to-many-relationship">One-to-Many Relationship</h1>
+        <p>Consider how we could map the following one-to-many relationships:</p>
+        <pre class="mysql"><code>create table icecream_flavor (
+            icecream_flavor_id int primary key auto_increment,
+            flavor_name varchar(50) not null
+        );  
+
+        create table icecream_ingredients (
+            icecream_ingredients_id int primary key auto_increment,
+            icecream_flavor_id not null,
+            ingredient_id not null,
+            ingredient_name not null
+        );
+        </code></pre>
+        <p>Doesn't seem too hard, let's just add a list of ingredients to each icecream flavor.</p>
+        <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> IcecreamFlavor {</span>
+        <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>    <span class="bu">List</span>&lt;Ingredient&gt; ingredients;</span>
+        <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>}</span></code></pre></div>
+        <p>The above approach is simple but how can we find all the icecreams that contain a certain ingredient? This would require a secondary fetch: We can resolve this by also adding an <code>Icecream</code> to the <code>Ingredient</code> class.</p>
+        <div class="sourceCode" id="cb3"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> Ingredient {</span>
+        <span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>    Icecream icecream;</span>
+        <span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>}</span></code></pre></div>
+        <p>This approach makes it easier to fetch icecream, but note that we've complicated our object model by introducing circular references.</p>
+        <h2 id="tags">Tags</h2>
+    </div>
+</body>
+</html>

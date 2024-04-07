@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Blockchain</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="blockchain">Blockchain</h1>
+        <p>A <em>blockchain</em> is a network of nodes that make transactions on decentralized database, or <em>ledger</em>.</p>
+        <p>Using electronic cash and online payments as an example, what problems does it solve and how does it compare with centralized approaches?<br />
+        <strong>Problem 1 - Trust Between Nodes In a Network</strong>: If nodes attempted to transact with one, each node is incentivized to falsify the database records for their gain.<br />
+        <strong>Centralized Solution</strong>: Funnel all transaction requests through a centralized, trusted 3rd party that facilitates the transactions for the nodes.<br />
+        <strong>Blockchain Solution</strong>: Make it extremely difficult for any node or group of nodes to falsify records by maintaining a chain of cryptographic signatures.</p>
+        <p><strong>Problem 2 - Double-Paying</strong>: In a large network, it is not uncommon for multiple transaction requests to happen simultaneously. In this scenario, it is possible for someone to pay with cash they do not have.<br />
+        <strong>Centralized Solution</strong>: Funnel all transaction requests through a centralized, trusted 3rd party to decide which ones came in first.<br />
+        <strong>Blockchain Solution</strong>: Use a timestamp server to publicly announce the time of each transaction. The actual time of each transaction is determined based on consensus by the majority of the nodes on the network.</p>
+        <h2 id="references">References</h2>
+        <p><a href="https://en.wikipedia.org/wiki/Blockchain">Wikipedia - Blockchain</a> <a href="https://bitcoin.org/bitcoin.pdf">Bitcoin: A Peer-to-Peer Electronic Cash System</a> by Satoshi Nakamoto</p>
+        <h2 id="tags">Tags</h2>
+        <p>#blockchain</p>
+    </div>
+</body>
+</html>

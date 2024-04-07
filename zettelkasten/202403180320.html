@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>UserDetailsService and UserDetails</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="userdetailsservice-and-userdetails">UserDetailsService and UserDetails</h1>
+        <p>The <code>UserDetailsService</code> pulls user details out of the database and creates <code>UserDetails</code> objects from them.<br />
+        <img src="https://www.eliotkhachi.dev/resources/zettel-images/Sun_Mar_17_08:23:54_PM_PDT_2024.png" alt="image" /></p>
+        <p>For the sake of simplicity of this tutorial, we'll create an <code>InMemoryUserDetailsManager</code> class to store user details in memory as opposed to the database.</p>
+        <h2 id="antmatchers">antMatchers</h2>
+        <p><code>antMatchers</code> originated from Apache. They allow us to set permissions on certain URLs/endpoints specified by regex strings. <code>.mvcMatchers()</code> is an alternative to <code>antMatchers</code> that is simpler than regex.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>    .<span class="fu">antMatchers</span>(HTTPMethod.<span class="fu">GET</span>, <span class="st">&quot;api/pokemon/**&quot;</span>).<span class="fu">permitAll</span>()</span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    .<span class="fu">antMatchers</span>(HTTPMethod.<span class="fu">POST</span>).<span class="fu">authenticated</span>()  </span></code></pre></div>
+        <h2 id="security-config">Security Config</h2>
+        <div class="sourceCode" id="cb2"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">package</span><span class="im"> com.pokemonreview.api.security;</span>  </span>
+        <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+        <span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.context.annotation.Boot;</span>  </span>
+        <span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.context.annotation.Configuration;</span>  </span>
+        <span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;</span>  </span>
+        <span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span> </span>
+        <span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.web.SecurityFilterChain;</span></span>
+        <span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.http.HttpMethod;</span></span>
+        <span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.core.userdetails.User;</span></span>
+        <span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.core.userdetails.UserDetails;</span></span>
+        <span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.core.userdetails.UserDetailsService;</span></span>
+        <span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a><span class="kw">import</span><span class="im"> org.springframework.security.provisioning.InMemoryUserDetailsManager;</span>  </span>
+        <span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a></span>
+        <span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a><span class="at">@Configuration</span></span>
+        <span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="at">@EnableWebSecurity</span></span>
+        <span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="kw">public</span> <span class="kw">class</span> SecurityConfig {</span>
+        <span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a></span>
+        <span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    <span class="at">@Bean</span></span>
+        <span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    <span class="kw">public</span> SecurityFilterChain <span class="fu">filterChain</span>(HttpSecurity http) <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
+        <span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>        http</span>
+        <span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a>        csrf.<span class="fu">disable</span>() <span class="co">// disable to remove errors associated with an un</span></span>
+        <span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>        configured csrf.</span>
+        <span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>        .<span class="fu">authorizeRequests</span>()</span>
+        <span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>        .<span class="fu">antMatchers</span>(HttpMethod.<span class="fu">GET</span>).<span class="fu">permitAll</span>(); <span class="co">// allow get requests for all endpoints (for this tutorial example)</span></span>
+        <span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>        <span class="co">// .antMatchers(HttpMethod.GET).hasRole(&quot;&lt;string&gt;&quot;); // allow get requests for any user with the given role   </span></span>
+        <span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a>        .<span class="fu">anyRequest</span>().<span class="fu">authenticated</span>() <span class="co">// actually authenticate (whole point of security)</span></span>
+        <span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a>        .<span class="fu">and</span>()</span>
+        <span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a>        .<span class="fu">httpBasic</span>() <span class="co">// Set HTTP as opposed to HTTPS</span></span>
+        <span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a>    <span class="kw">return</span> http.<span class="fu">build</span>(); <span class="co">// build the whole chain</span></span>
+        <span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a>    }</span>
+        <span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a></span>
+        <span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>    <span class="at">@Bean</span></span>
+        <span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>    <span class="kw">public</span> UserDetailsService <span class="fu">users</span>() {</span>
+        <span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>        UserDetails admin = User.<span class="fu">builder</span>()</span>
+        <span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>            .<span class="fu">username</span>(<span class="st">&quot;admin&quot;</span>)</span>
+        <span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>            .<span class="fu">password</span>(<span class="st">&quot;password&quot;</span>)</span>
+        <span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>            .<span class="fu">roles</span>(<span class="st">&quot;ADMIN&quot;</span>)</span>
+        <span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>            .<span class="fu">build</span>();</span>
+        <span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>        UserDetails user = User.<span class="fu">builder</span>()</span>
+        <span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>            .<span class="fu">username</span>(<span class="st">&quot;user&quot;</span>)</span>
+        <span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>            .<span class="fu">password</span>(<span class="st">&quot;password&quot;</span>)</span>
+        <span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>            .<span class="fu">roles</span>(<span class="st">&quot;USER&quot;</span>)</span>
+        <span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a>            .<span class="fu">build</span>();</span>
+        <span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>    }</span>
+        <span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a></span>
+        <span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>    <span class="kw">return</span> <span class="kw">new</span> <span class="fu">inMemoryUserDetailsManager</span>(admin, user);</span>
+        <span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>}</span></code></pre></div>
+        <h2 id="see-next">See Next</h2>
+        <p><a href="./202403180353.html">Configuring Users and Roles</a></p>
+        <h2 id="references">References</h2>
+        <p><a href="https://www.youtube.com/watch?v=GjN5IauaflY&amp;list=PL82C6-O4XrHe3sDCodw31GjXbwRdCyyuY">YouTube - Spring Boot Security JWT Authentication Series</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#spring</p>
+    </div>
+</body>
+</html>

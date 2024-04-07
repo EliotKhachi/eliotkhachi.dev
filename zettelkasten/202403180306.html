@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../css/zettelkasten.css"> <!-- Include your CSS file here -->
+    <title>Authentication Filter</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1 id="authentication-filter">Authentication Filter</h1>
+        <h2 id="context">Context</h2>
+        <p>Imagine you have just initialized an empty Spring Boot project, and you have a basic project structure with a controller, service, and repository for getting user details.</p>
+        <h2 id="install-spring-boot-security">Install Spring Boot Security</h2>
+        <p>Add to <code>pom.xml</code>:</p>
+        <pre><code>&lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;
+
+        &lt;/dependency&gt;
+        </code></pre>
+        <p>After you build and run your app, a security password is generated in memory and printed to the console, and if you try to go to your application root URL, you are greeted with a login page; where you login with <code>user</code> and <code>&lt;generated-password&gt;</code>.</p>
+        <h2 id="see-next">See Next</h2>
+        <p><a href="./202403180311.html">Security Filter Chain</a></p>
+        <h2 id="references">References</h2>
+        <p><a href="https://www.youtube.com/watch?v=GjN5IauaflY&amp;list=PL82C6-O4XrHe3sDCodw31GjXbwRdCyyuY">YouTube - Spring Boot Security JWT Authentication Series</a></p>
+        <h2 id="tags">Tags</h2>
+        <p>#spring</p>
+    </div>
+</body>
+</html>

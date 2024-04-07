@@ -14,9 +14,33 @@
     </div>
     <div class="content">
         <h1 id="s3-bucket-policy">S3 Bucket Policy</h1>
-        <p>An S3 bucket policy applies to the bucket itself, not the user. They can be used to set permissions for people outside of your AWS account, even anyone on the web.</p>
+        <p>An S3 bucket policy consists of <strong>Statements</strong> Each <strong>Statement</strong> is a rule that specifies <em>who</em> has access to what <em>API</em> calls on <em>which</em> objects in the bucket.</p>
+        <div class="sourceCode" id="cb1"><pre class="sourceCode json"><code class="sourceCode json"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">{</span></span>
+        <span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="dt">&quot;Version&quot;</span><span class="fu">:</span> <span class="st">&quot;2012-10-17&quot;</span><span class="fu">,</span></span>
+        <span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>    <span class="dt">&quot;Statement&quot;</span> <span class="er">[</span></span>
+        <span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>        <span class="er">{</span></span>
+        <span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>            <span class="dt">&quot;Sid&quot;</span><span class="fu">:</span> <span class="st">&quot;PublicRead&quot;</span><span class="fu">,</span></span>
+        <span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>            <span class="dt">&quot;Effect&quot;</span><span class="fu">:</span> <span class="st">&quot;Allow&quot;</span><span class="fu">,</span></span>
+        <span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>            <span class="dt">&quot;Principal&quot;</span><span class="fu">:</span> <span class="st">&quot;*&quot;</span><span class="fu">,</span></span>
+        <span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a>            <span class="dt">&quot;Action&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+        <span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>                <span class="st">&quot;s3:GetObject&quot;</span></span>
+        <span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>            <span class="ot">]</span><span class="fu">,</span></span>
+        <span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>            <span class="dt">&quot;Resource&quot;</span><span class="fu">:</span> <span class="ot">[</span></span>
+        <span id="cb1-12"><a href="#cb1-12" aria-hidden="true"></a>                <span class="st">&quot;arn:aws:s3:::examplebucket/*&quot;</span></span>
+        <span id="cb1-13"><a href="#cb1-13" aria-hidden="true"></a>            <span class="ot">]</span></span>
+        <span id="cb1-14"><a href="#cb1-14" aria-hidden="true"></a>        <span class="fu">}</span></span>
+        <span id="cb1-15"><a href="#cb1-15" aria-hidden="true"></a>    <span class="er">]</span></span>
+        <span id="cb1-16"><a href="#cb1-16" aria-hidden="true"></a><span class="er">}</span></span></code></pre></div>
+        <p>The above bucket policy allows public reads to all objects in <code>examplebucket</code> by everyone. The policy only consists of one statement that is</p>
+        <ul>
+        <li>named "PublicRead"</li>
+        <li>specifying an <code>"Allow"</code> rule for an <code>s3:GetObject</code> action</li>
+        <li>for everyone (<code>"Principle": "*"</code>)</li>
+        <li>to all objects in <code>examplebucket</code> (<code>"arn:aws:s3:::examplebucket/*"</code> (note the wildcard after the <code>/</code> in the arn.</li>
+        </ul>
+        <p>Bucket policies an be used to set permissions for people outside of your AWS account, even anyone on the web.</p>
         <h2 id="references">References</h2>
-        <p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">AWS Docs - S3 User Guide</a></p>
+        <p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access.html">AWS Docs - S3 Policy Examples</a></p>
         <h2 id="tags">Tags</h2>
     </div>
 </body>
