@@ -1,4 +1,7 @@
-# This workflow syncs the site to S3 and invalidates CloudFront on pushes to main.
+# This workflow syncs the site to S3 and invalidates CloudFront.
+# - Push to main: deploys website changes (excludes zettelkasten build artifacts)
+# - Manual trigger: rebuilds zettels from publicZk and deploys everything
+#
 # Requires the following repository secrets:
 #   AWS_ACCESS_KEY_ID
 #   AWS_SECRET_ACCESS_KEY
@@ -11,11 +14,45 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
+  build-and-deploy-zettels:
+    name: Build Zettels and Deploy
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Clone publicZk repository
+        run: git clone https://github.com/EliotKhachi/publicZk.git /tmp/publicZk
+
+      - name: Install Python dependencies
+        run: pip install markdown
+
+      - name: Build zettel HTML and zettels.json
+        run: python scripts/build_zettels.py /tmp/publicZk zettelkasten resources/zettels.json templates/zettel.html
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Sync site to S3 bucket
+        run: |
+          aws s3 sync . s3://amazon-cloudfront-s3-secure-site-cus-s3bucketroot-1jdibk2916043 --exclude ".*" --exclude "scripts/*" --exclude "templates/*" --delete
+
+      - name: Invalidate CloudFront cache
+        run: |
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
+
   deploy:
     name: Sync to S3 and Invalidate CloudFront
     runs-on: ubuntu-latest
+    if: github.event_name == 'push'
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -29,8 +66,8 @@ jobs:
 
       - name: Sync site to S3 bucket
         run: |
-          aws s3 sync . s3://amazon-cloudfront-s3-secure-site-cus-s3bucketroot-1jdibk2916043 --exclude ".*" --delete
+          aws s3 sync . s3://amazon-cloudfront-s3-secure-site-cus-s3bucketroot-1jdibk2916043 --exclude ".*" --exclude "scripts/*" --exclude "templates/*" --exclude "zettelkasten/*" --exclude "resources/zettels.json" --delete
 
       - name: Invalidate CloudFront cache
         run: |
-          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*" 
+          aws cloudfront create-invalidation --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} --paths "/*"
