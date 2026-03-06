@@ -114,6 +114,9 @@ a:hover {
   margin-left: 20px;
   margin-top: 20px;
   margin-bottom: 20px;
+  text-decoration: none;
+  position: relative;
+  z-index: 1;
 }
 
 #title {
@@ -122,8 +125,9 @@ a:hover {
   font-size: 40px;
   color: var(--primary-color);
 }
-#title:hover {
-  text-decoration: none;
+.title:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--primary-color);
 }
 
 #headshot {
