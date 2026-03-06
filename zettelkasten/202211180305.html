@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
-    <title>MySQL Inner Join </title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>MySQL Inner Join</title>
+    <link rel="stylesheet" type="text/css" href="../css/zettelkasten.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,33 +15,32 @@
         <div id="stars3"></div>
     </div>
     <div class="content">
-        <h1 id="mysql-inner-join">MySQL Inner Join</h1>
-        <h2 id="example">Example</h2>
-        <p>Given a CAD software / PLM database with the following tables:</p>
-        <ul>
-        <li>engineer</li>
-        <li>assembly</li>
-        <li>component</li>
-        <li>assembly_component - <em>bridge table between assemblies and components (many-to-many relationship)</em></li>
-        </ul>
-        <p>, return a result grid that links engineer's last names, their responsible assembly drawing numbers, and the components in those assemblies that are machined parts.</p>
-        <pre class="mysql"><code>/*
-        **Table Joining Concept**
-        Use common ids between the following tables in the following assembly:
-        engineer --&gt; assembly --&gt; assembly_component --&gt; component --&gt; filter 
-        */
-        select
-            engineer.last_name,
-            assembly.assembly_id,
-            component.name 
-        from engineer -- start with engineer table
-        inner join assembly on engineer.engineer_id = assembly.engineer_id -- join the assembly table using *engineer_id*  
-        inner join assembly_component on assembly.assembly_id = assembly_component.assembly_id -- join the assembly_item table using *assembly_id*
-        inner join component on assembly_component.component_id = assembly.component_id -- join the item table using *component_id* 
-        where component.component_type = &#39;Conventionally Machined&#39;; -- filter result
-        </code></pre>
-        <h2 id="tags">Tags</h2>
-        <p>#db</p>
+        <h1>MySQL Inner Join</h1>
+<h2>Example</h2>
+<p>Given a CAD software / PLM database with the following tables:
+* engineer 
+* assembly 
+* component
+* assembly_component - <em>bridge table between assemblies and components (many-to-many relationship)</em></p>
+<p>, return a result grid that links engineer's last names, their responsible 
+assembly drawing numbers, and the components in those assemblies that are machined parts.</p>
+<pre><code class="language-mysql">/*
+**Table Joining Concept**
+Use common ids between the following tables in the following assembly:
+engineer --&gt; assembly --&gt; assembly_component --&gt; component --&gt; filter 
+*/
+select
+    engineer.last_name,
+    assembly.assembly_id,
+    component.name 
+from engineer -- start with engineer table
+inner join assembly on engineer.engineer_id = assembly.engineer_id -- join the assembly table using *engineer_id*  
+inner join assembly_component on assembly.assembly_id = assembly_component.assembly_id -- join the assembly_item table using *assembly_id*
+inner join component on assembly_component.component_id = assembly.component_id -- join the item table using *component_id* 
+where component.component_type = 'Conventionally Machined'; -- filter result
+</code></pre>
+<h2>Tags</h2>
+<h1>db</h1>
     </div>
 </body>
 </html>

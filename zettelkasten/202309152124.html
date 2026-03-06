@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>S3 Bucket Policy</title>
-
+    <link rel="stylesheet" type="text/css" href="../css/zettelkasten.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,11 +15,34 @@
         <div id="stars3"></div>
     </div>
     <div class="content">
-        <h1 id="s3-bucket-policy">S3 Bucket Policy</h1>
-        <p>An S3 bucket policy applies to the bucket itself, not the user. They can be used to set permissions for people outside of your AWS account, even anyone on the web.</p>
-        <h2 id="references">References</h2>
-        <p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html">AWS Docs - S3 User Guide</a></p>
-        <h2 id="tags">Tags</h2>
+        <h1>S3 Bucket Policy</h1>
+<p>An S3 bucket policy consists of <strong>Statements</strong> Each <strong>Statement</strong> is a rule that specifies <em>who</em> has access to what <em>API</em> calls on <em>which</em> objects in the bucket. </p>
+<pre><code class="language-json">{
+    &quot;Version&quot;: &quot;2012-10-17&quot;,
+    &quot;Statement&quot; [
+        {
+            &quot;Sid&quot;: &quot;PublicRead&quot;,
+            &quot;Effect&quot;: &quot;Allow&quot;,
+            &quot;Principal&quot;: &quot;*&quot;,
+            &quot;Action&quot;: [
+                &quot;s3:GetObject&quot;
+            ],
+            &quot;Resource&quot;: [
+                &quot;arn:aws:s3:::examplebucket/*&quot;
+            ]
+        }
+    ]
+}
+</code></pre>
+<p>The above bucket policy allows public reads to all objects in <code>examplebucket</code> by everyone. The policy only consists of one statement that is 
+* named "PublicRead"<br />
+<em> specifying an <code>"Allow"</code> rule for an <code>s3:GetObject</code> action<br />
+</em> for everyone (<code>"Principle": "*"</code>)
+* to all objects in <code>examplebucket</code> (<code>"arn:aws:s3:::examplebucket/*"</code> (note the wildcard after the <code>/</code> in the arn.  </p>
+<p>Bucket policies an be used to set permissions for people outside of your AWS account, even anyone on the web.  </p>
+<h2>References</h2>
+<p><a href="https://docs.aws.amazon.com/AmazonS3/latest/userguide/example-walkthroughs-managing-access.html">AWS Docs - S3 Policy Examples</a>  </p>
+<h2>Tags</h2>
     </div>
 </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
-    <title>SCRAM Authentication </title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SCRAM Authentication</title>
+    <link rel="stylesheet" type="text/css" href="../css/zettelkasten.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,20 +15,20 @@
         <div id="stars3"></div>
     </div>
     <div class="content">
-        <h1 id="scram-authentication">SCRAM Authentication</h1>
-        <p>In cryptography, <em>SCRAM</em> stands for the <strong>Salted Challenge Response Authentication Mechanism</strong>.</p>
-        <p>SCRAM is a secure password authentication protocol that can authenticate a user to a server. It has several advantages over basic password authentication:</p>
-        <pre><code>* does not reveal the user&#39;s cleartext password to the server  
-        * is designed to prevent replay attacks   
-        * enables the use of Channel Binding - [202209300625](../202209300625) - Channel Binding  
-        * can support multiple cryptographic hash functions  
-            * currently, PostgreSQL only supports SCRAM using SHA-256   
-        </code></pre>
-        <h2 id="references">References</h2>
-        <p><a href="https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/how-to-securely-authenticate-with-scram-in-postgres-13/ba-p/1548319">Microsoft Tech Community - How to securely authenticate with SCRAM in Postgres 13</a></p>
-        <p><a href="https://en.wikipedia.org/wiki/Salted_Challenge_Response_Authentication_Mechanism">Wikipedia - Salted Challenge Response Authentication Mechanism</a></p>
-        <h2 id="tags">Tags</h2>
-        <p>#cryptography #security</p>
+        <h1>SCRAM Authentication</h1>
+<p>In cryptography, <em>SCRAM</em> stands for the <strong>Salted Challenge Response Authentication Mechanism</strong>.   </p>
+<p>SCRAM is a secure password authentication protocol that can authenticate a user to a server. It has several advantages over basic password authentication:  </p>
+<pre><code>* does not reveal the user's cleartext password to the server  
+* is designed to prevent replay attacks   
+* enables the use of Channel Binding - [202209300625](../202209300625) - Channel Binding  
+* can support multiple cryptographic hash functions  
+    * currently, PostgreSQL only supports SCRAM using SHA-256
+</code></pre>
+<h2>References</h2>
+<p><a href="https://techcommunity.microsoft.com/t5/azure-database-for-postgresql/how-to-securely-authenticate-with-scram-in-postgres-13/ba-p/1548319">Microsoft Tech Community - How to securely authenticate with SCRAM in Postgres 13</a>  </p>
+<p><a href="https://en.wikipedia.org/wiki/Salted_Challenge_Response_Authentication_Mechanism">Wikipedia - Salted Challenge Response Authentication Mechanism</a>  </p>
+<h2>Tags</h2>
+<h1>cryptography #security</h1>
     </div>
 </body>
 </html>

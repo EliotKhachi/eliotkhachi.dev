@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
-    <title>Linker Directive: SECTION </title>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Linker Directive: SECTION</title>
+    <link rel="stylesheet" type="text/css" href="../css/zettelkasten.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,20 +15,21 @@
         <div id="stars3"></div>
     </div>
     <div class="content">
-        <h1 id="linker-directive-section">Linker Directive: SECTION</h1>
-        <p>The <em>SECTION</em> linker directive allows a name in the source code (identified by <strong>#pragma</strong>) to be linked across to a block of memory in the <a href="../202202102126/zettel.html">[Linker Script]</a>.</p>
-        <h2 id="implementation">Implementation</h2>
-        <div class="sourceCode" id="cb1"><pre class="sourceCode c"><code class="sourceCode c"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>SECTION NAME=CONFIG ROM=config</span></code></pre></div>
-        <p>Here the connection from the source code to the block of memory is being made for configuration memory. In this case the name is identified by the use of <code>#pragma config</code> in the source code.</p>
-        <h2 id="references">References</h2>
-        <ol>
-        <li><a href="https://www.sciencedirect.com/topics/engineering/linker-script">[Linker Script - Science Direct]</a></li>
-        </ol>
-        <h2 id="other-links">Other Links</h2>
-        <ol>
-        <li><a href="../202202120014/zettel.html">[Linker Directives]</a></li>
-        </ol>
-        <h2 id="tags">Tags</h2>
+        <h1>Linker Directive: SECTION</h1>
+<p>The <em>SECTION</em> linker directive allows a name in the source code (identified by <strong>#pragma</strong>) to be linked across to a block of memory in the <a href="../202202102126">[Linker Script]</a>.  </p>
+<h2>Implementation</h2>
+<pre><code class="language-c">SECTION NAME=CONFIG ROM=config
+</code></pre>
+<p>Here the connection from the source code to the block of memory is being made for configuration memory. In this case the name is identified by the use of <code>#pragma config</code> in the source code.  </p>
+<h2>References</h2>
+<ol>
+<li><a href="https://www.sciencedirect.com/topics/engineering/linker-script">[Linker Script - Science Direct]</a>  </li>
+</ol>
+<h2>Other Links</h2>
+<ol>
+<li><a href="../202202120014">[Linker Directives]</a>  </li>
+</ol>
+<h2>Tags</h2>
     </div>
 </body>
 </html>

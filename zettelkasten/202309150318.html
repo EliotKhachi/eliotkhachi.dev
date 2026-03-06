@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Spot EC2 Instances</title>
-
+    <link rel="stylesheet" type="text/css" href="../css/zettelkasten.css">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="wrapper">
@@ -13,11 +15,14 @@
         <div id="stars3"></div>
     </div>
     <div class="content">
-        <h1 id="spot-ec2-instances">Spot EC2 Instances</h1>
-        <p><em>Spot</em> EC2 instances can get a discount of up to 90% compared to <a href="../202309150316/zettel.html">On-Demand</a>.</p>
-        <p>They are instances you can <em>lose</em> at any point if you max price is less than the current spot price. It is the <em>MOST</em> cost-efficient instance in AWS.</p>
-        <p>Recommended for workloads that are resilient to failure.</p>
-        <h2 id="tags">Tags</h2>
+        <h1>Spot EC2 Instances</h1>
+<p>Spot instances allow you to access spare Amazon EC2 capacity in the cloud. Some EC2s may not be running at full capacity, so AWS allows you to use those computing resources.   </p>
+<ul>
+<li>They can get a discount of up to 90% compared to <a href="../202309150316">On-Demand</a>, making them the most cost-efficient compute resource in AWS.  </li>
+<li>Their price is set by the market, in-real time. You can lose an instance at any point if your bid is less than the current spot price.  </li>
+<li>They are recommended for workloads that are resilient to failure.  </li>
+</ul>
+<h2>Tags</h2>
     </div>
 </body>
 </html>
