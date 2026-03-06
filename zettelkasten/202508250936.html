@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type= "text/css" href="../styles.css"> <!-- Include your CSS file here -->
+    <title>Read ZFS Drive</title>
+
+</head>
+<body>
+    <div class="wrapper">
+        <div id="stars"></div>
+        <div id="stars2"></div>
+        <div id="stars3"></div>
+    </div>
+    <div class="content">
+        <h1>Read ZFS Drive</h1>
+<ol>
+<li>
+<p>Plug in drive  </p>
+</li>
+<li>
+<p>Confirm it's visible<br />
+<code>diskutil list</code></p>
+</li>
+<li>
+<p>Load the ZFS kernel extension (should already be installed and authorized on your Mac)<br />
+<code>sudo /sbin/kextload /Library/Extensions/zfs.kext</code></p>
+</li>
+<li>
+<p>Import the ZFS pool to <code>/Volumes</code><br />
+<code>sudo zpool import -o readonly=on backup-pool-new</code>  </p>
+</li>
+</ol>
+<p><em>Use files at /Volumes/backup-pool-new...</em>  </p>
+<ol>
+<li>Export pool<br />
+<code>sudo zpool export backup-pool-new</code> </li>
+</ol>
+<h2>Tags</h2>
+<h1>macos #drives</h1>
+    </div>
+</body>
+</html>
